@@ -1,0 +1,25 @@
+{
+  "01": {
+    "unidad": "Unidad 1: Introducción",
+    "tema": "Introducción a la Teoría de Compiladores",
+    "video_presentacion": "videos/clase03_automatas.mp4",
+    "resumen":"<li>Un <strong>compilador</strong> traduce código fuente a objeto y detecta errores.</li><li >Trabaja coordinado con el <strong>preprocesador, ensamblador y linker</strong>.</li><li>Consta de <strong>6 fases</strong> lógicas fundamentales.</li><li>La separación <strong>Front End / Back End</strong> fomenta la reutilización.</li><li>Las herramientas como <strong>Lex y Yacc</strong> se basan en teoría de autómatas.</li>",
+    "proximo":"En la siguiente lección iniciaremos el estudio formal de la primera fase: <strong>Análisis Léxico</strong>.</p> Veremos cómo se definen las expresiones regulares para representar números, palabras clave e identificadores en un programa."
+  },
+  "02": {
+    "unidad": "Unidad 2: Análisis Léxico",
+    "tema": "Autómatas Finitos Deterministas",
+    "video_presentacion": "videos/clase03_automatas.mp4",
+    "resumen":"<li>Un <strong>autómata finito</strong> es un modelo matemático de un sistema con estados</li><li>Se representa gráficamente con un <strong>diagrama de transiciones</strong> y de manera tabular con la <strong>tabla de transiciones</strong></li><li>Formalmente, un <strong>Autómata Finito Determinista</strong> es una quíntupla M = (S, Σ, δ, s₀, F). La función de transición δ es determinista</li><li>La conexión con el análisis léxico es directa: los tokens de un lenguaje de programación se pueden describir con autómatas finitos</li>",
+    "proximo":"En la siguiente lección vamos a ver los <strong>autómatas finitos no deterministas</strong> y cómo se convierten en autómatas deterministas equivalentes. Ese proceso de conversión es fundamental para entender cómo funciona Lex."
+
+  },
+  "03": {
+    "unidad": "Unidad 2: Análisis Léxico",
+    "tema": "Autómatas Finitos No Deterministas",
+    "video_presentacion": "videos/clase03_automatas.mp4",
+    "resumen":"<li>Un <strong>compilador</strong> traduce código fuente a objeto y detecta errores.</li><li >Trabaja coordinado con el <strong>preprocesador, ensamblador y linker</strong>.</li><li>Consta de <strong>6 fases</strong> lógicas fundamentales.</li><li>La separación <strong>Front End / Back End</strong> fomenta la reutilización.</li><li>Las herramientas como <strong>Lex y Yacc</strong> se basan en teoría de autómatas.</li>",
+    "proximo":"En la siguiente lección iniciaremos el estudio formal de la primera fase: <strong>Análisis Léxico</strong>.</p> Veremos cómo se definen las expresiones regulares para representar números, palabras clave e identificadores en un programa."
+
+  }
+}
