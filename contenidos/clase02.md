@@ -133,6 +133,35 @@
 
 ---
 
+## Más ejemplos de Autómatas Finitos
+
+<div class="video-container-custom">
+  <div class="video-player">
+    <iframe 
+      src="https://www.youtube.com/embed/z9YiErQI6-w?si=2KUAxFYrudu2nVmD" 
+      title="Título del Video" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Columna Derecha: El video de YouTube (Iframe) -->
+  <div class="video-player">
+    <iframe 
+      src="https://www.youtube.com/embed/Q2zr8IBhc30?si=IdTkN25YejgcH65o" 
+      title="Título del Video" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+---
+
+
 ## Definición formal
 
 <div style="text-align:center; margin-bottom:15px;">
@@ -150,8 +179,6 @@
 <p><strong>F</strong>: estados de aceptación, F ⊆ S</p>
 </div>
 </div>
-
-
 
 ---
 

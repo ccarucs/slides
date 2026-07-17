@@ -834,3 +834,43 @@ table td { color: var(--text); }
 diapo-dinamica{
   top:52px;
 }
+
+/* Contenedor principal en dos columnas */
+.video-container-custom {
+  display: flex;
+  gap: 20px; /* Espacio entre la imagen y el video */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px; /* Ajusta según el ancho de tu slide */
+  margin: 0 auto;
+}
+
+/* Columna de la imagen izquierda */
+.video-poster {
+  flex: 1;
+}
+
+.video-poster img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Bordes redondeados sutiles si lo deseas */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para que resalte */
+}
+
+/* Columna del video derecha */
+.video-player {
+  flex: 1;
+  position: relative;
+  padding-bottom: 28.125%; /* Relación de aspecto 16:9 dividida a la mitad por las 2 col */
+  height: 0;
+}
+
+.video-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
