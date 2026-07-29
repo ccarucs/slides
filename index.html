@@ -88,17 +88,19 @@
       
       <!-- SLIDE 1: Portada -->
       <section data-menu-title="Portada" data-transition="fade">
-        <div style="text-align: center;">
-          <img src="img/logos/logo_ucasal.PNG" alt="Logo UCASAL" style="max-width: 100px; height: auto; filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.2)); border: none; background: transparent;">
+        <div style="text-align: center; margin-top: -40px;">
+          <img src="img/logos/logo_ucasal.PNG" alt="Logo UCASAL" style="max-width: 150px; height: auto; filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.2)); border: none; background: transparent;">
         </div>
       <div style="margin-top: -20px;">
         <h1 class="text-gradient" style="margin-bottom: 0.1em !important;">Compiladores</h1>
        </div>
-      
-      <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-secondary); padding: 15px; border-radius: 0 8px 8px 0; margin-top: 20px;">
+      </br>
+      <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-secondary); padding: 15px; border-radius: 0 8px 8px 0; margin-top: 20px;">        
         <h2 id="portada-unidad" style="font-size: 1.3rem !important; font-weight: 600; color: var(--text-color); margin-bottom: 5px !important;">Cargando unidad...</h2>
         <h2 id="portada-tema" style="font-size:1.3rem !important; color: var(--text-muted); margin: 0 !important;">Cargando tema...</h2>
       </div>
+
+    </br>
       <div class="grid" style="align-items: center; grid-gap: 30px;">  
          <div style="text-align: center;">
           <p style="font-size: 1rem !important; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color); margin-bottom: 5px !important; font-weight: 600;">
@@ -164,6 +166,9 @@
     // Función para arrancar Reveal.js (la llamamos solo cuando la ruta esté lista)
     function iniciarReveal() {
       Reveal.initialize({
+        width: 1200,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
+        height: 800,      // (por defecto es 700)
+        margin: 0.08,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
         hash: true,
         slideNumber: 'c/t',
         progress: true,

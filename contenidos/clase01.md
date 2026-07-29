@@ -76,7 +76,7 @@ Ahora bien, ¿por qué estudiar esto? Varios motivos. El primero es porque quiz�
 ## Compilador
 
 <div>
-  <div class="video-player-wrapper" style="width:70%">
+  <div class="video-player-wrapper teatro" style="width:70%; ">
     <video src="videos/u1/u1_02_definicion.mp4" poster="videos/u0_01_portada_video.png" controls></video>
   </div>
   <div class="video-meta">
@@ -88,7 +88,7 @@ Ahora bien, ¿por qué estudiar esto? Varios motivos. El primero es porque quiz�
 ---
 
 ## El contexto de un compilador
-<div class="two-col">
+<div class="two-col-flex ratio-40-60">
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-badge"></div>
@@ -206,7 +206,7 @@ Este simulador ya está resuelto en custom.js (simData) con el mismo ejemplo del
 
 ## Tabla de símbolos
 
-<div class="onetwo-col">
+<div class="two-col-flex ratio-40-60">
   <div>
     <p style="text-align:left;">Estructura de datos —generalmente una <strong>tabla hash</strong>— que registra todos los identificadores del programa: variables, funciones, tipos definidos por el usuario.</p>
     <p style="text-align:left;">Para cada identificador guarda: <strong>tipo</strong>, <strong>ámbito</strong> (dónde es válido), <strong>dirección de memoria</strong>, y si es función, cantidad y tipos de parámetros.</p>
@@ -297,7 +297,7 @@ El segundo componente transversal es el manejador de errores. Cada fase puede en
 ---
 
 ## Especificaciones de los lenguajes
-<table class="compare-table" style="margin-top: 20px;">
+<table class="compare-table" style="margin-top: 20px; width: 80%">
   <tr>
     <th>Fase del compilador</th>
     <th>Fundamento teórico</th>

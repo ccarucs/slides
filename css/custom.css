@@ -3,7 +3,8 @@
 /* --- variables del tema --- */
 :root {
   /* Modo Oscuro (Por Defecto) */
-  --bg-color: #0b0f19;
+  /* --bg-color: #0b0f19; */
+  --bg-color: #191b1eee;
   --text-color: #f1f5f9;
   --text-muted: #94a3b8;
   --accent-color: #06b6d4; /* Cian vibrante */
@@ -675,6 +676,7 @@ body.light-theme .sim-output-box {
 .video-player-wrapper {
   position: relative;
   width: 80%;
+  margin: 1.5rem auto;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -701,19 +703,54 @@ body.light-theme .sim-output-box {
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
-
+/* 
 body.video-active .video-theater-overlay {
   opacity: 1;
 }
-
+*/
 /* Eleva el contenedor del video por encima del overlay cuando se reproduce */
+/*
 body.video-active .reveal .slides section.present .video-player-wrapper {
   z-index: 991;
   position: relative;
   box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
   transform: scale(1.05);
   transition: transform 0.4s ease;
-}
+}*/
+/* ------------------------------------------- */
+/* La capa negra de pantalla completa queda desactivada de forma permanente:
+   no puede colocarse por debajo del video (ver informe). El oscurecimiento
+   ahora se logra con box-shadow, que no depende de z-index. */
+   body.video-active .video-theater-overlay {
+    opacity: 0;
+  }
+  
+  /* COMPORTAMIENTO POR DEFECTO — sin efecto teatro.
+     Al reproducir, el video se realza con el halo cian y una ampliación leve.
+     No se oscurece nada, así que el video siempre queda visible. */
+  body.video-active .reveal .slides section.present .video-player-wrapper {
+    z-index: 991;
+    position: relative;
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
+  }
+  
+  /* EFECTO TEATRO OPCIONAL — se activa video por video.
+     Para que una diapositiva oscurezca el fondo al reproducir, agregar la clase
+     "teatro" al div del video en el .md de la clase:
+  
+         <div class="video-player-wrapper teatro">
+  
+     El primer box-shadow tiene spread 100vmax: pinta una sombra negra tan grande
+     que cubre la pantalla en cualquier proporción, pero al pertenecer al propio
+     contenedor del video vive en su mismo contexto de apilamiento y nunca puede
+     taparlo. El segundo conserva el halo cian original. */
+  body.video-active .reveal .slides section.present .video-player-wrapper.teatro {
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.85),
+                0 0 40px rgba(6, 182, 212, 0.4);
+  }
+  /* --------------------------------------------------------- */
 
 .video-badge {
   display: inline-flex;
@@ -741,6 +778,7 @@ body.light-theme .video-badge {
   margin-top: 8px !important;
   display: flex;
   gap: 15px;
+  justify-content: center;
 }
 
 .video-meta span {
@@ -873,4 +911,13 @@ diapo-dinamica{
   width: 100%;
   height: 100%;
   border-radius: 8px;
+}
+
+.fa-video{
+  color: seagreen;
+}
+
+/* Cambia todos los .fas EXCEPTO los que están dentro de la barra flotante */
+.fas:not(.floating-toolbar .fas) {
+  color: violet;
 }
