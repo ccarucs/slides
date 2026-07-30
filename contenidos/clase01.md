@@ -20,19 +20,14 @@
 </div>
 <div class="flipped-callout">
   <h4><i class="fas fa-lightbulb"></i> Antes de la clase presencial</h4>
-  <p>Al terminar esta clase resolvé el cuestionario de autoevaluación al final de la Lección 1.</p>
+  <p>Al terminar esta clase resolvé el <span style="color: var(--accent-color)">Cuestionario de Autoevaluación</span> que está al final de la <span style="color: var(--accent-color)">Lección 1</span> del aula virtual.</p>
 </div>
-
-</div>
-
-Note:
-[INTRO] Bienvenidos a Compiladores. Esta es una materia que puede parecer muy teórica, muy técnica, pero en realidad es exactamente lo contrario: es una materia que explica algo que ya usamos todo el tiempo sin pensarlo demasiado. Cada vez que escribimos un programa informático y lo ejecutamos, algo ocurre entre ese código que escribimos y las instrucciones que finalmente corre el procesador. Ese "algo" es el trabajo del compilador. Y entender cómo funciona cambia la forma en que programamos. En este primer video vamos a hacer un recorrido general, para entender: qué es un compilador, en qué contexto trabaja, cuáles son sus partes internas, y cómo se relaciona todo eso con la teoría que vamos a ver a lo largo del cuatrimestre.
 
 ---
 
 ## ¿Qué es un compilador?
 
-<div class="two-col">
+<div class="two-col-flex ratio-40-60">
   <div>
     <p style="font-size:1.1rem !important; color: var(--text-color) !important;">Un programa que <strong>lee</strong> un programa escrito en un lenguaje y lo <strong>traduce</strong> a un programa equivalente en otro lenguaje.</p>
     <div class="flipped-callout">
@@ -40,16 +35,17 @@ Note:
       <p>No es una copia ni una transcripción literal: es un programa equivalente, que hace lo mismo, expresado en otro lenguaje.</p>
     </div>
   </div>
-  <div class="card" style="opacity:0.75; border-style:dashed;">
-    <img src="img/u1_01_traductor.png" style="width:100%"></img>
+  <div>
+    <div class="video-player-wrapper teatro" style="width:100%; margin-top:0;">
+      <video src="videos/u1/u1_02_definicion.mp4" poster="img/u1_01_traductor.png" controls></video>
+    </div>
+    <div class="video-meta">
+      <span><i class="fas fa-video"></i> Video Explicativo</span>
+    </div>
   </div>
 </div>
 
-Note:
-[DESARROLLO — Bloque 1] Empecemos por la definición básica: un programa que lee un programa escrito en un lenguaje y lo traduce a un programa equivalente en otro lenguaje. Un compilador lee un programa escrito en un lenguaje de programación —al que llamamos lenguaje fuente— y lo traduce a un programa equivalente escrito en otro lenguaje —el lenguaje objeto. Ese programa equivalente no es una transcripción literal, no es una copia. Es un programa que hace lo mismo, pero expresado en otro lenguaje. Generalmente ese lenguaje objeto es código de máquina, el lenguaje binario que entiende el procesador. Pero no siempre: a veces el destino es un código intermedio, o incluso otro lenguaje de alto nivel. Este proceso de traducción se conoce como compilación. Además, el compilador hace algo muy importante: detecta errores. Si el programa fuente tiene problemas —errores de sintaxis, variables no declaradas, tipos incompatibles— el compilador los reporta. Y lo ideal es que no se detenga en el primer error encontrado, sino que siga analizando para reportar la mayor cantidad posible.
-
 ---
-
 
 ## ¿Por qué estudiar compiladores?
 
@@ -67,21 +63,11 @@ Note:
     <p>Procesamiento de lenguaje natural, análisis de protocolos de red, motores de búsqueda: pensar en términos formales sobre el procesamiento de lenguajes.</p>
   </div>
 </div>
-
-Note:
-Ahora bien, ¿por qué estudiar esto? Varios motivos. El primero es porque quizás en algún momento necesiten construir un compilador, o algo que se le parezca. Si bien hay muchos lenguajes de programación y también son variados los lenguajes objeto, las tareas básicas que debe realizar cualquier compilador son esencialmente las mismas. Entonces, comprendiendo estas tareas, podemos construir compiladores o traductores para una gran variedad de lenguajes. El segundo motivo es que entender cómo se obtiene un ejecutable hace que escribamos mejores códigos. Saber qué hace el compilador con una variable, cómo maneja los tipos, qué pasa con las llamadas a funciones... todo eso tiene impacto directo en la corrección y en la eficiencia de los programas que escribimos. Y el tercer motivo es que las técnicas básicas para la escritura de compiladores pueden ser aplicadas a otras áreas de la informática: procesamiento de lenguaje natural, análisis de protocolos de red, motores de búsqueda. Aprender a construir un compilador es aprender a pensar en términos formales sobre el procesamiento de lenguajes.
-
----
-
-## Compilador
-
 <div>
-  <div class="video-player-wrapper teatro" style="width:70%; ">
-    <video src="videos/u1/u1_02_definicion.mp4" poster="videos/u0_01_portada_video.png" controls></video>
+  <div class="video-player-wrapper" style="width:50%">
+    <video src="videos/u1/u1_03_motivacion.mp4" poster="img/u0_02_play_video.png" controls></video>
   </div>
-  <div class="video-meta">
-    <span><i class="fas fa-video"></i> Video Explicativo</span>
-  </div>
+
 </div>
 
 
@@ -129,6 +115,7 @@ El compilador no trabaja solo. Para obtener un programa ejecutable a partir de c
 ---
 
 ## Compiladores e intérpretes
+<p style="text-align:justify">Antes de entrar en las fases internas del compilador, conviene distinguirlo de otra herramienta con la que comparte muchas características: el <span style="color:var(--accent-color)">intérprete</span>. Ambos reciben un programa fuente y lo procesan. La diferencia está en qué hacen con él. </br>El compilador traduce el programa completo a otro lenguaje y guarda el resultado. La ejecución ocurre después, a partir de ese resultado. </br>El intérprete, en cambio, ejecuta el programa directamente, instrucción por instrucción, sin generar código objeto persistente. Lee una instrucción, la analiza, la ejecuta, y pasa a la siguiente. </br>¿Qué implica esto? Los programas compilados generalmente se ejecutan más rápido, porque la traducción ya está hecha. Los intérpretes son más flexibles y facilitan el desarrollo interactivo, pero son más lentos en tiempo de ejecución porque deben analizar el código cada vez que se ejecuta.</p>
 <div class="two-col">
 <table class="compare-table" style="font-size: 0.5em;">
   <tr>
@@ -161,8 +148,32 @@ El compilador no trabaja solo. Para obtener un programa ejecutable a partir de c
 <div><img src="img/u1_02_compinterp.png" style="align:center"></img></div>
 </div>
 
+
+---
+
+## Consulta
+
+<h4 style="color:var(--accent-secondary) !important;">¿Cuál es la principal diferencia operativa entre un compilador y un intérprete?</h4>
+<p>Elige la opción correcta</p>
+
+<div class="quiz-container">
+  <div class="quiz-option" data-correct="false">
+    El compilador ejecuta el programa línea por línea mientras que el intérprete genera un ejecutable.
+  </div>
+  <div class="quiz-option" data-correct="true">
+    El compilador traduce todo el código antes de ejecutarlo; el intérprete traduce y ejecuta instrucción por instrucción en tiempo real.
+  </div>
+  <div class="quiz-option" data-correct="false">
+    Los intérpretes son siempre más rápidos en tiempo de ejecución porque omiten la fase de análisis.
+  </div>
+</div>
+<div class="quiz-feedback" 
+     data-correct-explain="¡Excelente! El compilador realiza la traducción de forma previa (offline), mientras que el intérprete procesa el código fuente directamente en caliente." 
+     data-incorrect-explain="El compilador produce un archivo traducido (código objeto) para su posterior ejecución, mientras que el intérprete no genera código persistente.">
+</div>
+
 Note:
-Antes de entrar en las fases internas del compilador, conviene distinguirlo de otra herramienta con la que comparte muchas características: el intérprete. Ambos reciben un programa fuente y lo procesan. La diferencia está en qué hacen con él. El compilador traduce el programa completo a otro lenguaje y guarda el resultado. La ejecución ocurre después, a partir de ese resultado. El intérprete, en cambio, ejecuta el programa directamente, instrucción por instrucción, sin generar código objeto persistente. Lee una instrucción, la analiza, la ejecuta, y pasa a la siguiente. ¿Qué implica esto? Los programas compilados generalmente se ejecutan más rápido, porque la traducción ya está hecha. Los intérpretes son más flexibles y facilitan el desarrollo interactivo, pero son más lentos en tiempo de ejecución porque deben analizar el código cada vez que se ejecuta.
+[AUTOEVALUACIÓN] Esta pregunta permite afianzar el concepto antes de adentrarnos en las fases del compilador. Es una pausa activa ideal para el estudiante en su casa.
 
 ---
 
@@ -171,19 +182,37 @@ Antes de entrar en las fases internas del compilador, conviene distinguirlo de o
 Un compilador se descompone en **seis fases** secuenciales. Cada una recibe la salida de la anterior y produce una nueva representación del programa. Dos componentes transversales —tabla de símbolos y manejador de errores— colaboran con todas ellas.
 
 <div>
-  <div class="video-player-wrapper">
+  <div class="video-player-wrapper" style="width:70%">
     <video src="videos/u1/u1_05_fases.mp4" poster="videos/u0_01_portada_video.png" controls></video>
   </div>
   <div class="video-meta">
-    <span><i class="fas fa-video"></i> Video Explicativo</span>
+    <span><i class="fas fa-video"></i> Video Explicativo: Esquema General de Fases</span>
   </div>
 </div>
 
 ---
 
+## Las fases en acción (Ejemplo)
+
+A continuación, analizaremos cómo se transforma y compila paso a paso la sentencia <span style="color:var(--accent-color)">posicion := inicial + velocidad * 60</span>.
+
+<div>
+  <div class="video-player-wrapper" style="width:70%">
+    <video src="videos/u1/u1_05_fases_ejemplo.mp4" poster="img/u0_02_play_video.png" controls></video>
+  </div>
+  <div class="video-meta">
+    <span><i class="fas fa-video"></i> Video Explicativo: Ejemplo Práctico</span>
+  </div>
+</div>
+
+Note:
+[DESARROLLO] Prestá atención a cómo cada fase transforma la expresión original. En la siguiente diapositiva vas a poder interactuar con un simulador de este mismo ejemplo para recorrer cada etapa a tu propio ritmo.
+
+---
+
 ## Recorré las 6 fases
 
-<p style="text-align:center;">Usá el simulador para volver a repasar cómo se transforma <code>posicion := inicial + velocidad * 60</code> en cada etapa, a tu ritmo.</p>
+<p style="text-align:center;">Usá el <strong>simulador </strong>para volver a repasar cómo se transforma <span style="color:var(--accent-color)">posicion := inicial + velocidad * 60</span> en cada etapa, a tu ritmo.</p>
 
 <div class="simulator-container">
   <div class="simulator-steps" id="sim-steps"></div>
@@ -200,7 +229,34 @@ Un compilador se descompone en **seis fases** secuenciales. Cada una recibe la s
 </div>
 
 Note:
-Este simulador ya está resuelto en custom.js (simData) con el mismo ejemplo del video. Es un buen punto para pausar la narración y dejar que el estudiante interactúe, o para usarlo como resumen visual antes de pasar a la tabla de símbolos.
+Este simulador ya está resuelto en custom.js (simData) con el mismo ejemplo del video. 
+
+---
+
+## Ponemos a prueba lo aprendido
+
+<h5><span  style="color:var(--accent-secondary) !important;">Si un programador escribe</span> <code>total := x + 10</code> <span  style="color:var(--accent-secondary) !important;">pero no ha declarado la variable </span><code>x</code><span  style="color:var(--accent-secondary) !important;">, ¿en qué fase se detecta este error?</span></h5>
+<p>Elige la respuesta correcta</p>
+
+
+<div class="quiz-container">
+  <div class="quiz-option" data-correct="false">
+    En el Análisis Léxico, porque la variable 'x' no es un token válido.
+  </div>
+  <div class="quiz-option" data-correct="false">
+    En el Análisis Sintáctico, porque la gramática exige que las variables estén declaradas antes.
+  </div>
+  <div class="quiz-option" data-correct="true">
+    En el Análisis Semántico, porque evalúa el significado, validez de tipos y declaraciones de los identificadores en la Tabla de Símbolos.
+  </div>
+</div>
+<div class="quiz-feedback" 
+     data-correct-explain="El lexer y el parser solo verifican la estructura de caracteres y la gramática (que sintácticamente es correcta: id := id + num). Es el análisis semántico el que comprueba que la variable realmente exista y tenga un tipo compatible." 
+     data-incorrect-explain="La sintaxis 'variable := variable + número' es perfectamente correcta gramaticalmente. El error radica en el significado/contexto (saber si existe 'x'), lo cual es competencia de otra fase.">
+</div>
+
+Note:
+[AUTOEVALUACIÓN] Esta pregunta asienta el simulador interactivo y conecta la teoría formal con la práctica del desarrollo de software cotidiano.
 
 ---
 
@@ -217,7 +273,7 @@ Este simulador ya está resuelto en custom.js (simData) con el mismo ejemplo del
   </div>
   <div>
     <div class="video-player-wrapper">
-      <video src="videos/u1/u1_06_tablayerrores.mp4" poster="videos/u0_01_portada_video.png" controls></video>
+      <video src="videos/u1/u1_06_tablasimbolos.mp4" poster="videos/u0_01_portada_video.png" controls></video>
     </div>
     <div class="video-meta">
       <span><i class="fas fa-video"></i> Video Explicativo</span>
@@ -226,33 +282,35 @@ Este simulador ya está resuelto en custom.js (simData) con el mismo ejemplo del
   </div>
 </div>
 
-Note:
-Además de las seis fases, el compilador cuenta con dos componentes que no forman parte de la secuencia principal, sino que están disponibles para todas las fases. El primero es la tabla de símbolos. Es una estructura de datos —generalmente implementada con una tabla hash— que registra todos los identificadores del programa: variables, funciones, tipos definidos por el usuario. Para cada identificador, guarda sus atributos: el tipo, el ámbito —es decir, en qué parte del programa es válido—, la dirección de memoria asignada, y en el caso de funciones, la cantidad y tipos de parámetros. El analizador léxico es quien introduce los identificadores en la tabla la primera vez que los encuentra. Las fases siguientes la consultan y la enriquecen con más información.
-
-
 ---
 
 ## Manejador de errores
 
 <p>Cada fase puede encontrar errores de naturaleza distinta. Un compilador bien diseñado <strong>no se detiene ante el primer error</strong>: intenta recuperarse y seguir analizando.</p>
-
-<div class="grid-3">
-  <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-    <p>El análisis léxico puede encontrar caracteres o secuencias que no corresponden a ningún token válido del lenguaje.</p>
+<div class="two-col-flex ratio-60-40">
+  <div class="col">
+  <div class="grid-3">
+    <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+      <p>El análisis léxico puede encontrar caracteres o secuencias que no corresponden a ningún token válido del lenguaje.</p>
+    </div>
+    <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+      <p class="timeline-desc">El análisis sintáctico detecta incumplimiento a las reglas gramaticales.</p>
+    </div>
+    <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+      <p class="timeline-desc">El análisis semántico detecta errores de significado.</p>
+    </div>
   </div>
-  <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-    <p class="timeline-desc">El análisis sintáctico detecta incumplimiento a las reglas gramaticales.</p>
+  <div>
+    <img src="img/u1_04_errores.png"></img>
   </div>
-  <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-    <p class="timeline-desc">El análisis semántico detecta errores de significado.</p>
+  </div>
+ <div class="col">
+    <div class="video-player-wrapper" style="width:100%">
+      <video src="videos/u1/u1_07_errores.mp4" poster="videos/u0_01_portada_video.png" controls></video>
+    </div>
   </div>
 </div>
-<div>
-  <img src="img/u1_04_errores.png"></img>
 </div>
-
-Note:
-El segundo componente transversal es el manejador de errores. Cada fase puede encontrar errores, y cada fase produce errores de naturaleza distinta. El análisis léxico puede encontrar caracteres o secuencias que no corresponden a ningún token válido del lenguaje: por ejemplo, un identificador que empieza con un número, como 2ab. El análisis sintáctico detecta violaciones a las reglas gramaticales: por ejemplo, dos operandos seguidos sin operador entre ellos, como total := val1 val2. El análisis semántico detecta errores de significado: intentar sumar una variable numérica con una cadena de texto, por ejemplo total := val1 * 'pal'. Un compilador bien diseñado no se detiene ante el primer error. Intenta recuperarse y continuar el análisis para reportar la mayor cantidad posible de problemas en una sola pasada. Esto es importante en la práctica: tener que compilar veinte veces para descubrir veinte errores uno por uno sería muy poco eficiente.
 
 ---
 
@@ -293,6 +351,15 @@ El segundo componente transversal es el manejador de errores. Cada fase puede en
     <p>Generador automático de analizadores sintácticos. Dada la gramática del lenguaje, genera el parser a partir de una especificación formal.</p>
   </div>
 </div>
+<div>
+  <div class="video-player-wrapper" style="width:60%">
+    <video src="videos/u1/u1_07_herramientas.mp4" poster="videos/u0_01_portada_video.png" controls></video>
+  </div>
+  <div class="video-meta">
+    <span><i class="fas fa-video"></i> Video Explicativo</span>
+    <!--<span><i class="fas fa-clock"></i> 2:00 min</span>-->
+  </div>
+</div>
 
 ---
 
@@ -316,7 +383,5 @@ El segundo componente transversal es el manejador de errores. Cada fase puede en
   </tr>
 </table>
 
-Note:
-Construir un compilador desde cero es una tarea ardua pero interesante. Para facilitar esta tarea existen herramientas que automatizan las partes más mecánicas del proceso. En este curso vamos a usar dos herramientas fundamentales: Lex es un generador automático de analizadores léxicos. Dado un conjunto de especificaciones de tokens —expresadas mediante expresiones regulares— genera el analizador léxico correspondiente. No hay que programar el lexer a mano: basta con especificar qué forma tienen los tokens. Yacc es un generador automático de analizadores sintácticos. Dada la gramática del lenguaje, genera el parser. La herramienta hace el trabajo pesado a partir de una especificación formal. Estas herramientas están basadas en teoría formal de la computación. Y acá aparece la conexión con la teoría que vamos a estudiar en este cuatrimestre. El análisis léxico se basa en autómatas finitos y expresiones regulares. El análisis sintáctico se basa en gramáticas independientes del contexto y autómatas con pila. El análisis semántico usa gramáticas de atributos. Toda la teoría de lenguajes formales que vamos a ver tiene una aplicación directa y concreta en alguna fase del compilador. No es teoría por la teoría: es el fundamento de las herramientas que vamos a usar.
-
 ---
+

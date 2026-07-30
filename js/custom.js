@@ -349,7 +349,8 @@ function goToSimStep(index) {
 
   // Actualizar textos
   document.getElementById('sim-expr').innerHTML = data.expr;
-  document.getElementById('sim-desc').innerText = data.desc;
+  //document.getElementById('sim-desc').innerText = data.desc;
+  document.getElementById('sim-desc').innerHTML = data.desc;
   document.getElementById('sim-output').innerHTML = data.out;
   document.getElementById('sim-info').innerText = `Paso ${index + 1} de ${simData.length}`;
 

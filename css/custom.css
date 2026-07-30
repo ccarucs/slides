@@ -6,7 +6,7 @@
   /* --bg-color: #0b0f19; */
   --bg-color: #191b1eee;
   --text-color: #f1f5f9;
-  --text-muted: #94a3b8;
+  --text-muted: #bdc6d2;    /* #94a3b8; */
   --accent-color: #06b6d4; /* Cian vibrante */
   --accent-secondary: #6366f1; /* Índigo */
   --accent-success: #10b981; /* Esmeralda */
@@ -479,7 +479,7 @@ body.light-theme .compare-table tr:hover td {
   text-align: left;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 0.85em;
+  font-size: 0.60em;
   font-weight: 500;
   display: flex;
   justify-content: space-between;
@@ -509,7 +509,7 @@ body.light-theme .compare-table tr:hover td {
   border-radius: 10px;
   padding: 15px 20px;
   margin-top: 15px;
-  font-size: 0.8em;
+  font-size: 0.6em;
   text-align: left;
   display: none;
 }
