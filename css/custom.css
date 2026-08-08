@@ -75,7 +75,7 @@ body.light-theme {
 .reveal p, .reveal li {
   line-height: 1.6 !important;
   color: var(--text-muted) !important;
-  font-size: 1rem !important;
+  font-size: 1.4rem !important;
 }
 
 .reveal strong {

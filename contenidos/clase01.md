@@ -13,7 +13,7 @@
     </ul>       
   </div>  
   <div>
-    <div class="video-player-wrapper" style="width:70%; margin-top:10;">
+    <div class="video-player-wrapper" style="width:100%; margin-top:10;">
       <video src="videos/u1/u1_01_introduccion.mp4" poster="img/indice_grafico.png" controls></video>
     </div>
   </div>  
