@@ -36,7 +36,7 @@
     </div>
   </div>
   <div>
-    <div class="video-player-wrapper teatro" style="width:70%; margin-top:10;">
+    <div class="video-player-wrapper teatro" style="width:1000%; margin-top:10;">
       <video src="videos/u1/u1_02_definicion.mp4" poster="img/u1_01_traductor.png" controls></video>
     </div>
   </div>
@@ -62,7 +62,7 @@
   </div>
 </div>
 <div>
-  <div class="video-player-wrapper" style="width:50%">
+  <div class="video-player-wrapper" style="width:100%">
     <video src="videos/u1/u1_03_motivacion.mp4" poster="img/interrogacion.png" controls></video>
   </div>
 
