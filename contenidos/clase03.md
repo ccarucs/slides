@@ -3,7 +3,7 @@
 <h2>¿Qué vamos a aprender?</h2>
 <div class="grid-2">  
   <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-    <span class="video-badge" style="margin-bottom: 5px !important;">
+    <span class="text-badge" style="margin-bottom: 5px !important;">
       <i class="fas fa-list-ul"></i> Hoja de ruta de la clase </span>    
     <ul style="font-size: 0.80rem !important; line-height: 1.6; margin-left: 20px;  font-weight: bold;">
       <li>Definición de autómata finito no determinista</li>
@@ -15,7 +15,7 @@
   </div>  
   <div>
     <div class="video-player-wrapper">
-      <video src="videos/u2/u2_afnd_01_introduccion.mp4" poster="img/u0_02_play_video.png" controls></video>
+      <video src="videos/u2_afnd/u2_afnd_01_introduccion.mp4" poster="img/u0_02_play_video.png" controls></video>
     </div>
   </div>  
 </div>
@@ -27,12 +27,33 @@
 </div>
 
 ---
+## Repaso rápido: el AFD
+
+<div class="two-col">
+  <div class="col">
+    <p>Un <strong>Autómata Finito Determinista</strong> es una quíntupla <strong>M = (S, Σ, δ, s₀, F)</strong>, donde δ es una función que, dado un estado y un símbolo, devuelve <strong>exactamente un estado</strong>.</p>
+    <div class="flipped-callout">
+    <p><strong>Aceptación:</strong> M acepta x₁x₂…xₙ si existe una secuencia de estados s₀,s₁,…,sₙ tal que sₙ ∈ F y cada δ(sⱼ₋₁, xⱼ) = sⱼ es válida.</p>
+    </div>
+    <p style="text-align:left">Hay un <strong>único camino</strong> posible para cada cadena. Ese camino termina en aceptación o en rechazo. Ahora veamos qué pasa cuando relajamos esa restricción.</p>
+  </div>
+  <div class="col">
+    <p><strong>Ejemplo de la clase anterior</strong></p>
+    <div class="contenedor-svg" id="gemini-svg" style="width: 80%; margin: 0 auto;"></div>
+</div>
+
+</div>
+
+Note:
+Antes de introducir el no determinismo, un repaso breve. Un Autómata Finito Determinista es una quíntupla M = (S, Σ, δ, s₀, F), donde δ es una función que dado un estado y un símbolo devuelve exactamente un estado. Eso es el determinismo: una entrada, una respuesta, sin ambigüedad. La condición de aceptación es la ya vista: el autómata acepta la cadena x₁x₂...xₙ si existe una secuencia de estados s₀, s₁, ..., sₙ tal que sₙ ∈ F y cada transición δ(sⱼ₋₁, xⱼ) = sⱼ es válida. Dicho de otra manera: hay un único camino posible para cada cadena, y ese camino o termina en un estado de aceptación —cadena válida— o no —cadena rechazada. Ahora, qué pasa cuando se relaja esa restricción.
+
+---
 
 ## Cuando hay más de una opción
 
 <div class="two-col">
   <div class="col">
-    <p>En el video anterior definimos el <strong>Autómata Finito Determinista (AFD)</strong>: en cada estado, para cada símbolo, existe <strong>exactamente una</strong> transición posible.</p>
+    <p>En la clase anterior definimos el <strong>Autómata Finito Determinista (AFD)</strong>: en cada estado, para cada símbolo, existe <strong>exactamente una</strong> transición posible.</p>
     <div class="flipped-callout">
       <h4><i class="fas fa-lightbulb"></i> La pregunta de hoy</h4>
       <p>¿Qué pasa si un autómata puede tener <strong>más de una</strong> transición posible para el mismo símbolo? ¿O transiciones que no consumen ningún símbolo?</p>
@@ -52,21 +73,9 @@
   </div>
 </div>
 
----
-
-## Repaso rápido: el AFD
-
-<p>Un <strong>Autómata Finito Determinista</strong> es una quíntupla <strong>M = (S, Σ, δ, s₀, F)</strong>, donde δ es una función que, dado un estado y un símbolo, devuelve <strong>exactamente un estado</strong>.</p>
-
-<div class="flipped-callout">
-<p><strong>Aceptación:</strong> M acepta x₁x₂…xₙ si existe una secuencia de estados s₀,s₁,…,sₙ tal que sₙ ∈ F y cada δ(sⱼ₋₁, xⱼ) = sⱼ es válida.</p>
-</div>
-
-<p style="text-align:left">Hay un <strong>único camino</strong> posible para cada cadena. Ese camino termina en aceptación o en rechazo. Ahora veamos qué pasa cuando relajamos esa restricción.</p>
-
-</div>
 
 ---
+
 ## Autómata Finito No Determinista
 
 <div class="two-col">

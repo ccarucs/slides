@@ -18,15 +18,21 @@
   --toolbar-bg: rgba(11, 15, 25, 0.85);
   --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --gradiente: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+  /*
+  --card1: rgba(242, 90, 40, 0.75);
+  --card2:rgba(220, 42, 119, 0.75);
+  --card3:rgba(163, 14, 155, 0.75);*/
 }
 
 body.light-theme {
   /* Modo Claro */
   --bg-color: #f8fafc;
-  --text-color: #0f172a;
+  --text-color: #203462;
   --text-muted: #475569;
   --accent-color: #0284c7; /* Azul cielo */
   --accent-secondary: #4f46e5; /* Índigo */
+  --accent-warning: #f59e0b; /* Ámbar */
+  --accent-danger: #ef4444; /* Rojo */
   --card-bg: rgba(255, 255, 255, 0.85);
   --card-hover-bg: rgba(255, 255, 255, 0.95);
   --border-color: rgba(15, 23, 42, 0.08);
@@ -57,12 +63,12 @@ body.light-theme {
 }
 
 .reveal h1 {
-  font-size: 2.6em !important;
+  font-size: 2.2em !important;
   line-height: 1.1 !important;
 }
 
 .reveal h2 {
-  font-size: 1.5em !important;
+  font-size: 1.3em !important;
   border-bottom: none !important;
 }
 
@@ -145,7 +151,7 @@ body.light-theme .floating-toolbar button:hover {
   top: 0;
   left: -320px;
   width: 300px;
-  height: 100%;
+  height: 90%;
   background: var(--bg-color);
   border-right: 1px solid var(--border-color);
   z-index: 1000;
@@ -198,7 +204,7 @@ body.index-open .index-drawer {
   padding: 10px 14px;
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 500;
   border-radius: 8px;
   transition: all 0.2s ease;
@@ -467,8 +473,29 @@ body.light-theme .compare-table tr:hover td {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 650px;
+  max-width: 800px;
   margin: 0 auto;
+}
+
+/* Borde con gradiente + glow pulsante sobre el contenedor existente */
+/*.quiz-container {
+  padding: 20px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
+    var(--gradiente) border-box;
+  animation: quiz-glow 2.5s ease-in-out infinite;
+} */
+
+.quiz-question{
+  font-size: 0.80em;
+  color:var(--accent-color);
+  font-family: 'Outfit', sans-serif !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 0.5em !important;
 }
 
 .quiz-option {
@@ -479,10 +506,10 @@ body.light-theme .compare-table tr:hover td {
   text-align: left;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 0.60em;
+  font-size: 0.50em;
   font-weight: 500;
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   align-items: center;
 }
 
@@ -509,7 +536,7 @@ body.light-theme .compare-table tr:hover td {
   border-radius: 10px;
   padding: 15px 20px;
   margin-top: 15px;
-  font-size: 0.6em;
+  font-size: 0.5em;
   text-align: left;
   display: none;
 }
@@ -522,6 +549,59 @@ body.light-theme .compare-table tr:hover td {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Insignia y borde destacado para slides de Quiz ---- */
+
+.quiz-badge-container {
+  text-align: center;
+}
+
+.quiz-badge-container .quiz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gradiente);
+  color: #fff !important;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+  animation: quiz-badge-float 2.4s ease-in-out infinite;
+}
+
+.quiz-badge.tipo-concepto   { background: var(--gradiente); }
+.quiz-badge.tipo-ejemplo    { background: linear-gradient(135deg, var(--accent-secondary), var(--accent-color)); }
+.quiz-badge.tipo-desafio    { background: linear-gradient(135deg, var(--accent-warning), var(--accent-danger)); }
+.quiz-badge.tipo-prediccion { background: linear-gradient(135deg, var(--accent-secondary), #8b5cf6); }
+.quiz-badge.tipo-error      { background: linear-gradient(135deg, var(--accent-danger), var(--accent-warning)); }
+
+@keyframes quiz-badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ---- Emoji flotante reutilizable ---- */
+.emoji-float {
+  display: inline-block;
+  font-size: 1.6rem;
+  animation: quiz-badge-float 2.4s ease-in-out infinite;
+}
+
+/* Variante más grande, para usar como elemento destacado solo/centrado en la slide */
+.emoji-float.big {
+  font-size: 3.5rem;
+}
+
+
+@keyframes quiz-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(6, 182, 212, 0.15); }
+  50% { box-shadow: 0 0 26px rgba(6, 182, 212, 0.4); }
 }
 
 /* --- Simulador de Fases Interactivas --- */
@@ -558,6 +638,10 @@ body.light-theme .compare-table tr:hover td {
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 0 6px 6px 0;
+
+  height: auto; /* Permite ajustar la altura si el texto ocupa más de una línea */
+  white-space: normal; /* Asegura que el texto pueda envolverse en varias líneas si es necesario */
+  word-break: break-word;
 }
 
 .sim-step-btn:hover {
@@ -675,8 +759,14 @@ body.light-theme .sim-output-box {
 
 .video-player-wrapper {
   position: relative;
-  width: 80%;
-  margin: 1.5rem auto;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;    /* Centra verticalmente */
+  min-height: 300px;       /* para notar el centrado vertical */
+  /* margin: 1.5rem auto; */
+  max-width: 800px;       /* Ajusta un ancho máximo para que no ocupe todo el ancho */
+  margin: 0 auto;         /* Centra el contenedor completo dentro del slide */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -687,8 +777,9 @@ body.light-theme .sim-output-box {
 
 .video-player-wrapper video {
   width: 100%;
-  height: 100%;
+  height: auto;  /* 100%;*/
   object-fit: cover;
+  margin-top:10px;
 }
 
 .video-theater-overlay {
@@ -778,12 +869,12 @@ body.light-theme .video-badge {
   margin-top: 8px !important;
   display: flex;
   gap: 15px;
-  justify-content: center;
+  /* justify-content:  center;*/
 }
 
 .video-meta span {
   display: flex;
-  align-items: center;
+  align-items: left; /* center;*/
   gap: 4px;
 }
 
@@ -795,9 +886,27 @@ body.light-theme .video-badge {
 }
 
 /* agregado */
+.text-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 1.2rem !important;
+  color: var(--accent-secondary) !important;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: 'Outfit', sans-serif;
+}
 /*  ----------  */
 .descripcion{
-  font-size: 0.75rem
+  font-size: 0.75rem;
+}
+.texto-destacado{  /* no llega a titulo */
+  font-size: 1.5rem;
+  text-align: left;
 }
 /* codigo python*/
 .reveal .hljs {
@@ -836,6 +945,8 @@ video, iframe {
 .arc.err-path { stroke: var(--red); stroke-width: 3; }
 .arc-label { fill: var(--text-dim); font-family: var(--mono); font-size: 13px; text-anchor: middle; }
 
+
+
 .two-col { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items:center; }
 .onetwo-col { display:grid; grid-template-columns: 1.1fr 0.6fr; gap: 30px; align-items:center; }
 
@@ -870,7 +981,7 @@ table td { color: var(--text); }
 .accept-cell { color: var(--green); }
 
 diapo-dinamica{
-  top:52px;
+  top:35px;
 }
 
 /* Contenedor principal en dos columnas */
@@ -920,4 +1031,110 @@ diapo-dinamica{
 /* Cambia todos los .fas EXCEPTO los que están dentro de la barra flotante */
 .fas:not(.floating-toolbar .fas) {
   color: violet;
+}
+
+/* ---- Pie de página (materia + tema de la slide) ---- */
+.slide-footer {
+  position: fixed;
+  bottom: 10px;
+  left: 20%; 
+  transform: translateX(-50%);
+  z-index: 998; /* debajo del floating-toolbar (999) y del drawer (1000) */
+  display: flex;
+  align-items: left; /* center;*/
+  gap: 8px;
+  padding: 5px 18px;
+  background: var(--shadow);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  pointer-events: none; /* no interfiere con clicks en la slide */
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.3s ease;
+}
+
+.slide-footer .footer-materia {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.slide-footer .footer-sep {
+  opacity: 0.5;
+}
+
+/* Ocultar en impresión a PDF (ya se solapaba con slide-number) */
+@media print {
+  .slide-footer { display: none !important; }
+}
+
+/* AUTOMATAS */
+/* Configuración de fuente y textos para el diagrama */
+
+svg {
+  font-family: 'Fira Code', monospace;
+}
+
+.contenedor-svg{
+  width: 100%;
+  height: auto;
+}
+
+/* Estados generales (Nodos) */
+.estado {
+  fill: var(--card-bg);
+  stroke: var(--accent-color);
+  stroke-width: 2.5;
+}
+
+/* Identificador / Texto interno del estado */
+.estado_texto {
+  font-size: 20px;
+  fill: var(--text-color, black);
+  text-anchor: middle;
+}
+
+/* Modificador para el estado final / de aceptación */
+.estado_final {
+  stroke: var(--accent-success);
+}
+
+/* Anillo interno del estado de aceptación */
+.estado_final_anillo {
+  fill: none;
+  stroke: var(--accent-success);
+  stroke-width: 2;
+}
+
+/* Flecha de entrada al estado inicial */
+.flecha_inicial {
+  stroke: var(--text-color);
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
+}
+
+/* Transiciones entre estados (Líneas y curvas) */
+.transicion {
+  fill: none;
+  stroke: var(--text-color);
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
+}
+
+/* Etiquetas o símbolos sobre las transiciones */
+.simbolo {
+  font-size: 16px;
+  fill: var(--accent-warning, orange);
+  text-anchor: middle;
+}
+
+/* Variante cuando la etiqueta va alineada a la izquierda/inicio */
+.simbolo.alineado-inicio {
+  text-anchor: start;
 }

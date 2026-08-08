@@ -1,7 +1,7 @@
 ## Contenidos de la clase
 <div class="grid-2">  
   <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-    <span class="video-badge" style="margin-bottom: 5px !important;">
+    <span class="text-badge" style="margin-bottom: 5px !important;">
       <i class="fas fa-list-ul"></i> Hoja de ruta de la clase </span>    
     <ul style="font-size: 0.80rem !important; line-height: 1.6; margin-left: 20px; font-weight: bold">
       <li>Qué es un compilador.</li>
@@ -13,8 +13,8 @@
     </ul>       
   </div>  
   <div>
-    <div class="video-player-wrapper">
-      <video src="videos/u1/u1_01_introduccion.mp4" poster="img/u0_02_play_video.png" controls></video>
+    <div class="video-player-wrapper" style="width:70%; margin-top:10;">
+      <video src="videos/u1/u1_01_introduccion.mp4" poster="img/indice_grafico.png" controls></video>
     </div>
   </div>  
 </div>
@@ -36,14 +36,12 @@
     </div>
   </div>
   <div>
-    <div class="video-player-wrapper teatro" style="width:100%; margin-top:0;">
+    <div class="video-player-wrapper teatro" style="width:70%; margin-top:10;">
       <video src="videos/u1/u1_02_definicion.mp4" poster="img/u1_01_traductor.png" controls></video>
-    </div>
-    <div class="video-meta">
-      <span><i class="fas fa-video"></i> Video Explicativo</span>
     </div>
   </div>
 </div>
+
 
 ---
 
@@ -65,7 +63,7 @@
 </div>
 <div>
   <div class="video-player-wrapper" style="width:50%">
-    <video src="videos/u1/u1_03_motivacion.mp4" poster="img/u0_02_play_video.png" controls></video>
+    <video src="videos/u1/u1_03_motivacion.mp4" poster="img/interrogacion.png" controls></video>
   </div>
 
 </div>
@@ -103,8 +101,8 @@
     </div>  
   </div>
   <div>
-    <div class="video-player-wrapper">
-      <video src="videos/u1/u1_04_contexto.mp4" poster="img/u0_02_play_video.png" controls></video>
+    <div class="video-player-wrapper" style="width:80%">
+      <video src="videos/u1/u1_04_contexto.mp4" poster="img/u0_02_play_video.png" controls ></video>
     </div>
   </div>  
 </div>
@@ -115,7 +113,11 @@ El compilador no trabaja solo. Para obtener un programa ejecutable a partir de c
 ---
 
 ## Compiladores e intérpretes
-<p style="text-align:justify">Antes de entrar en las fases internas del compilador, conviene distinguirlo de otra herramienta con la que comparte muchas características: el <span style="color:var(--accent-color)">intérprete</span>. Ambos reciben un programa fuente y lo procesan. La diferencia está en qué hacen con él. </br>El compilador traduce el programa completo a otro lenguaje y guarda el resultado. La ejecución ocurre después, a partir de ese resultado. </br>El intérprete, en cambio, ejecuta el programa directamente, instrucción por instrucción, sin generar código objeto persistente. Lee una instrucción, la analiza, la ejecuta, y pasa a la siguiente. </br>¿Qué implica esto? Los programas compilados generalmente se ejecutan más rápido, porque la traducción ya está hecha. Los intérpretes son más flexibles y facilitan el desarrollo interactivo, pero son más lentos en tiempo de ejecución porque deben analizar el código cada vez que se ejecuta.</p>
+
+<div style="margin-bottom: 25px;">
+  <audio src="videos/u1/u1_compilador_interprete.m4a" controls style="width: 40%; display: block; margin: 0 auto;"></audio>
+</div>
+
 <div class="two-col">
 <table class="compare-table" style="font-size: 0.5em;">
   <tr>
@@ -143,19 +145,21 @@ El compilador no trabaja solo. Para obtener un programa ejecutable a partir de c
     <td>Menor</td>
     <td>Mayor, facilita el desarrollo interactivo</td>
   </tr>
-  <tr>
+
 </table>
-<div><img src="img/u1_02_compinterp.png" style="align:center"></img></div>
+<div><img src="img/u1_02_compinterp.png" style="align:center; width:90%"></img></div>
 </div>
+
+Note: Antes de entrar en las fases internas del compilador, conviene distinguirlo de otra herramienta con la que comparte muchas características: el intérprete. Ambos reciben un programa fuente y lo procesan. La diferencia está en qué hacen con él. El compilador traduce el programa completo a otro lenguaje y guarda el resultado. La ejecución ocurre después, a partir de ese resultado. El intérprete, en cambio, ejecuta el programa directamente, instrucción por instrucción, sin generar código objeto persistente. Lee una instrucción, la analiza, la ejecuta, y pasa a la siguiente. ¿Qué implica esto? Los programas compilados generalmente se ejecutan más rápido, porque la traducción ya está hecha. Los intérpretes son más flexibles y facilitan el desarrollo interactivo, pero son más lentos en tiempo de ejecución porque deben analizar el código cada vez que se ejecuta.
 
 
 ---
 
-## Consulta
-
-<h4 style="color:var(--accent-secondary) !important;">¿Cuál es la principal diferencia operativa entre un compilador y un intérprete?</h4>
+## Responde la siguiente pregunta
+<div>
+<span class="quiz-question"><span class="emoji-float big"> 🤔</span> ¿Cuál es la principal diferencia operativa entre un compilador y un intérprete?</scan>
 <p>Elige la opción correcta</p>
-
+</div>
 <div class="quiz-container">
   <div class="quiz-option" data-correct="false">
     El compilador ejecuta el programa línea por línea mientras que el intérprete genera un ejecutable.
@@ -168,7 +172,7 @@ El compilador no trabaja solo. Para obtener un programa ejecutable a partir de c
   </div>
 </div>
 <div class="quiz-feedback" 
-     data-correct-explain="¡Excelente! El compilador realiza la traducción de forma previa (offline), mientras que el intérprete procesa el código fuente directamente en caliente." 
+     data-correct-explain=" El compilador realiza la traducción de forma previa (offline), mientras que el intérprete procesa el código fuente directamente." 
      data-incorrect-explain="El compilador produce un archivo traducido (código objeto) para su posterior ejecución, mientras que el intérprete no genera código persistente.">
 </div>
 
@@ -185,24 +189,19 @@ Un compilador se descompone en **seis fases** secuenciales. Cada una recibe la s
   <div class="video-player-wrapper" style="width:70%">
     <video src="videos/u1/u1_05_fases.mp4" poster="videos/u0_01_portada_video.png" controls></video>
   </div>
-  <div class="video-meta">
-    <span><i class="fas fa-video"></i> Video Explicativo: Esquema General de Fases</span>
-  </div>
 </div>
 
 ---
 
 ## Las fases en acción (Ejemplo)
 
-A continuación, analizaremos cómo se transforma y compila paso a paso la sentencia <span style="color:var(--accent-color)">posicion := inicial + velocidad * 60</span>.
+En este video se muestra cómo se transforma y compila paso a paso la sentencia <span style="color:var(--accent-color)">posicion := inicial + velocidad * 60</span>. Es una explicación sencilla ... recuerden que durante el cuatrimestre veremos en detalle cómo implementar cada fase.
 
 <div>
   <div class="video-player-wrapper" style="width:70%">
     <video src="videos/u1/u1_05_fases_ejemplo.mp4" poster="img/u0_02_play_video.png" controls></video>
   </div>
-  <div class="video-meta">
-    <span><i class="fas fa-video"></i> Video Explicativo: Ejemplo Práctico</span>
-  </div>
+
 </div>
 
 Note:
@@ -212,7 +211,7 @@ Note:
 
 ## Recorré las 6 fases
 
-<p style="text-align:center;">Usá el <strong>simulador </strong>para volver a repasar cómo se transforma <span style="color:var(--accent-color)">posicion := inicial + velocidad * 60</span> en cada etapa, a tu ritmo.</p>
+<p style="text-align:center;"><span class="emoji-float">🫵 </span> Usá el <strong>simulador </strong>para volver a repasar cómo se transforma <span style="color:var(--accent-color)">posicion := inicial + velocidad * 60</span> en cada etapa, a tu ritmo.</p>
 
 <div class="simulator-container">
   <div class="simulator-steps" id="sim-steps"></div>
@@ -235,10 +234,10 @@ Este simulador ya está resuelto en custom.js (simData) con el mismo ejemplo del
 
 ## Ponemos a prueba lo aprendido
 
-<h5><span  style="color:var(--accent-secondary) !important;">Si un programador escribe</span> <code>total := x + 10</code> <span  style="color:var(--accent-secondary) !important;">pero no ha declarado la variable </span><code>x</code><span  style="color:var(--accent-secondary) !important;">, ¿en qué fase se detecta este error?</span></h5>
-<p>Elige la respuesta correcta</p>
-
-
+<div>
+<span class="quiz-question"><span class="emoji-float big"> 🤔</span> Si un programador escribe  <code style="color:var(--text-muted)">total := x + 10</code>  pero no ha declarado la variable <code style="color:var(--text-muted)"> x </code>, ¿en qué fase se detecta este error?</scan>
+<p>Elige la opción correcta</p>
+</div>
 <div class="quiz-container">
   <div class="quiz-option" data-correct="false">
     En el Análisis Léxico, porque la variable 'x' no es un token válido.
@@ -272,13 +271,10 @@ Note:
     </div>
   </div>
   <div>
-    <div class="video-player-wrapper">
+    <div class="video-player-wrapper" style="width:70%">
       <video src="videos/u1/u1_06_tablasimbolos.mp4" poster="videos/u0_01_portada_video.png" controls></video>
     </div>
-    <div class="video-meta">
-      <span><i class="fas fa-video"></i> Video Explicativo</span>
-      <!--<span><i class="fas fa-clock"></i> 2:00 min</span>-->
-    </div>
+
   </div>
 </div>
 
@@ -310,7 +306,7 @@ Note:
     </div>
   </div>
 </div>
-</div>
+
 
 ---
 
@@ -328,18 +324,15 @@ Note:
 </div>
 
 <div>
-  <div class="video-player-wrapper" style="width:60%">
+  <div class="video-player-wrapper" style="width:50%">
     <video src="videos/u1/u1_08_agrupamiento.mp4" poster="videos/u0_01_portada_video.png" controls></video>
   </div>
-  <div class="video-meta">
-    <span><i class="fas fa-video"></i> Video Explicativo</span>
-    <!--<span><i class="fas fa-clock"></i> 2:00 min</span>-->
-  </div>
+
 </div>
 
 ---
 
-## Herramientas para construir compiladores
+## Software para construir compiladores
 
 <div class="grid-2">
   <div class="card">
@@ -351,17 +344,17 @@ Note:
     <p>Generador automático de analizadores sintácticos. Dada la gramática del lenguaje, genera el parser a partir de una especificación formal.</p>
   </div>
 </div>
-<div>
-  <div class="video-player-wrapper" style="width:60%">
-    <video src="videos/u1/u1_07_herramientas.mp4" poster="videos/u0_01_portada_video.png" controls></video>
-  </div>
-  <div class="video-meta">
-    <span><i class="fas fa-video"></i> Video Explicativo</span>
-    <!--<span><i class="fas fa-clock"></i> 2:00 min</span>-->
-  </div>
+<div class="video-player-wrapper" style="width:50%">
+    <video src="videos/u1/u1_07_herramientas.mp4" poster="img/compu_compi.png" controls></video>   
 </div>
 
+<div class="flipped-callout" style="text-align: center;">
+  <p><strong>⚠️ En las próximas semanas daremos las indicaciones para la instalación y uso de estas herramientas.</p>
+</div>
+ 
+
 ---
+
 
 ## Especificaciones de los lenguajes
 <table class="compare-table" style="margin-top: 20px; width: 80%">
@@ -383,5 +376,5 @@ Note:
   </tr>
 </table>
 
----
+
 

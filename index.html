@@ -8,18 +8,21 @@
   <link rel="icon" href="data:,">
   
   <!-- Estilos base de Reveal.js local -->
-  <link rel="stylesheet" href="reveal.js-master/dist/reset.css">
-  <link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
-  <link rel="stylesheet" href="reveal.js-master/dist/theme/black.css" id="theme-base">
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme-base">
 
   <!-- Hojas de estilos para resaltado de código local -->
-  <link rel="stylesheet" href="reveal.js-master/dist/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="reveal.js/dist/plugin/highlight/monokai.css">
 
   <!-- Iconografía y fuentes externas -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Estilos personalizados premium -->
   <link rel="stylesheet" href="css/custom.css">
+
+
+
 </head>
 <body>
 
@@ -60,10 +63,7 @@
 
       <span class="help-key">F</span>
       <span>Pantalla completa</span>
-
-      <span class="help-key">S</span>
-      <span>Notas del orador (Docente)</span>
-      
+     
       <span class="help-key">Ctrl+P</span>
       <span>Imprimir presentación a PDF</span>
     </div>
@@ -81,6 +81,13 @@
 
   <!-- Capa de oscurecimiento para "Modo Teatro" del video explicativo -->
   <div class="video-theater-overlay"></div>
+
+  <!-- Pie de página con materia + tema de la slide actual -->
+  <div id="slide-footer" class="slide-footer">
+    <span class="footer-materia">Compiladores</span>
+    <span class="footer-sep">·</span>
+    <span id="footer-tema"></span>
+  </div>
 
   <!-- Reveal.js Contenedor de diapositivas -->
     <div class="reveal">
@@ -100,7 +107,9 @@
         <h2 id="portada-tema" style="font-size:1.3rem !important; color: var(--text-muted); margin: 0 !important;">Cargando tema...</h2>
       </div>
 
-    </br>
+      </br>
+      <p class="subtitulo" style="margin-top:1rem; font-size:0.8rem;">Mg. Lic. Carolina Cardoso - Ing. Miguel Tolaba</p>
+ 
       <div class="grid" style="align-items: center; grid-gap: 30px;">  
          <div style="text-align: center;">
           <p style="font-size: 1rem !important; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color); margin-bottom: 5px !important; font-weight: 600;">
@@ -117,6 +126,7 @@
                data-markdown="" 
                data-separator="^\n---\n" 
                data-separator-vertical="^\n--\n">
+              
       </section>
 
 
@@ -143,16 +153,17 @@
         </div>
       </section>
     </div>
+    
   </div>
 
 
 
   <!-- Scripts base de Reveal.js local -->
-  <script src="reveal.js-master/dist/reveal.js"></script>
-  <script src="reveal.js-master/dist/plugin/highlight.js"></script>
-  <script src="reveal.js-master/dist/plugin/notes.js"></script>
-  <script src="reveal.js-master/dist/plugin/math.js"></script>
-  <script src="reveal.js-master/dist/plugin/markdown.js"></script>
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/dist/plugin/highlight.js"></script>
+  <script src="reveal.js/dist/plugin/notes.js"></script>
+  <script src="reveal.js/dist/plugin/math.js"></script>
+  <script src="reveal.js/dist/plugin/markdown.js"></script>
 
 
   <script>
@@ -164,6 +175,8 @@
     if (claseParam.length === 1 && !isNaN(claseParam)) {
       claseParam = '0' + claseParam;
     }
+    // Variable global con el tema de la clase actual, para el pie de página
+    window.temaClaseActual = '';
 
     const rutaMarkdown = `contenidos/clase${claseParam}.md`;
     const seccionMarkdown = document.getElementById('diapo-dinamica');
@@ -171,10 +184,12 @@
     // Función para arrancar Reveal.js (la llamamos solo cuando la ruta esté lista)
     function iniciarReveal() {
       Reveal.initialize({
-        width: 1200,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
-        height: 800,      // (por defecto es 700)
-        margin: 0.08,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
+        width: 1280,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
+        height: 700,      // (por defecto es 700)
+        margin: 0.06,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
         hash: true,
+        minScale    : 0.10,
+        maxScale    : 3.00,
         slideNumber: 'c/t',
         progress: true,
         controls: true,
@@ -196,6 +211,12 @@
         document.getElementById('portada-tema').innerText = datosClases[claseParam].tema;
         document.getElementById('final_resumen').innerHTML = datosClases[claseParam].resumen;
         document.getElementById('final_proximo').innerHTML = datosClases[claseParam].proximo;
+
+        // Guardar el tema para el pie de página y refrescarlo si el footer ya está listo
+        window.temaClaseActual = datosClases[claseParam].tema;
+        const footerTema = document.getElementById('footer-tema');
+        if (footerTema) footerTema.innerText = window.temaClaseActual;
+
       } else {
         // Fallback si ponen una clase que no está en el JSON
         document.getElementById('portada-textos').innerText = "Clase No Registrada";
@@ -222,5 +243,34 @@
 
 <!-- Lógica personalizada de controles e interactividad -->
   <script src="js/custom.js"></script>
+
+  <!-- Script para cargar e iniciar Mermaid -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.min.js"></script>
+  <script>
+    // mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({
+      theme: 'dark' // 'default', 'forest', 'neutral', 'dark'
+    });
+  </script> -->
+  <!-- <script>
+    fetch('img/gemini-svg.svg')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('gemini-svg').innerHTML = data;
+      });
+  </script> -->
+  <script>
+    fetch('img/gemini-svg.svg')
+  .then(response => response.text())
+  .then(data => {
+    const container = document.getElementById('gemini-svg');
+    container.innerHTML = data;
+    // Find the svg element and remove the invalid height attribute
+    const svgEl = container.querySelector('svg');
+    if (svgEl && svgEl.getAttribute('height') === 'auto') {
+      svgEl.removeAttribute('height');
+    }
+  });
+  </script>
 </body>
 </html>

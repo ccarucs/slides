@@ -10,7 +10,7 @@
     "unidad": "Unidad 2: Análisis Léxico",
     "tema": "Autómatas Finitos Deterministas",
     "video_presentacion": "videos/clase03_automatas.mp4",
-    "resumen":"<li>Un <strong>autómata finito</strong> es un modelo matemático de un sistema con estados</li><li>Se representa gráficamente con un <strong>diagrama de transiciones</strong> y de manera tabular con la <strong>tabla de transiciones</strong></li><li>Formalmente, un <strong>Autómata Finito Determinista</strong> es una quíntupla M = (S, Σ, δ, s₀, F). La función de transición δ es determinista</li><li>La conexión con el análisis léxico es directa: los tokens de un lenguaje de programación se pueden describir con autómatas finitos</li>",
+    "resumen":"<li>Un <strong>autómata finito</strong> es un modelo matemático de un sistema con estados</li><li>Se representa gráficamente con un <strong>diagrama de transiciones</strong> y de manera tabular con la <strong>tabla de transiciones</strong></li><li>Formalmente, un <strong>Autómata Finito Determinista</strong> es una quíntupla M = (S, Σ, δ, s₀, F). La función de transición δ es determinista</li><li>La conexión con el análisis léxico es directa: los tokens de un lenguaje de programación se pueden describir con autómatas finitos (más adelante retomaremos este punto)</li>",
     "proximo":"En la siguiente lección vamos a ver los <strong>autómatas finitos no deterministas</strong> y cómo se convierten en autómatas deterministas equivalentes. Ese proceso de conversión es fundamental para entender cómo funciona Lex."
 
   },

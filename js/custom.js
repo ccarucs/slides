@@ -1,4 +1,4 @@
-// Lógica Interactiva para la presentación de Compiladores (Clase 1)
+// Lógica Interactiva para la presentación de Compiladores 
 
 function init() {
   buildNavigationMenu();
@@ -6,6 +6,7 @@ function init() {
   initQuiz();
   initSimulator();
   initVideos();
+  initFooter();          
   checkPrintMode();
 
   if (window.Reveal) {
@@ -128,6 +129,32 @@ function updateActiveMenu(slideIdx) {
   });
 }
 
+
+/* --- 1.b Pie de página dinámico (materia + tema) --- */
+function initFooter() {
+  const footer = document.getElementById('slide-footer');
+  const footerTema = document.getElementById('footer-tema');
+  if (!footer || !window.Reveal) return;
+
+  function updateFooter(event) {
+    const indexh = (event && typeof event.indexh === 'number')
+      ? event.indexh
+      : Reveal.getIndices().h;
+
+    // Ocultar solo en la portada (primera slide horizontal)
+    if (indexh === 0) {
+      footer.style.display = 'none';
+      return;
+    }
+    footer.style.display = 'flex';
+    footerTema.innerText = window.temaClaseActual || '';
+  }
+
+  Reveal.on('slidechanged', updateFooter);
+  updateFooter({ indexh: Reveal.getIndices().h });
+}
+
+
 /* --- 2. Control de Tema (Claro / Oscuro) --- */
 function initTheme() {
   const themeToggle = document.getElementById('theme-toggle');
@@ -240,17 +267,32 @@ function initQuiz() {
         if (isCorrect) {
           opt.classList.add('correct');
           if (feedback) {
-            feedback.innerHTML = `<strong>¡Correcto!</strong> ${feedback.getAttribute('data-correct-explain') || '¡Muy bien pensado!'}`;
+            feedback.innerHTML = `😀 <strong> ¡Correcto! </strong> ${feedback.getAttribute('data-correct-explain') || '¡Muy bien pensado!'}`;
             feedback.style.color = '#10b981';
             feedback.classList.add('show');
           }
         } else {
           opt.classList.add('incorrect');
           if (feedback) {
-            feedback.innerHTML = `<strong>Incorrecto.</strong> ${feedback.getAttribute('data-incorrect-explain') || 'Intenta de nuevo.'}`;
+            feedback.innerHTML = `🙁 <strong> Incorrecto. </strong> ${feedback.getAttribute('data-incorrect-explain') || 'Intenta de nuevo.'}`;
             feedback.style.color = '#ef4444';
             feedback.classList.add('show');
           }
+        }
+        
+        // Re-renderizar fórmulas matemáticas (KaTeX) en el feedback,
+        // ya que este HTML se inyecta después de que RevealMath ya
+        // procesó la diapositiva y no lo detecta automáticamente.
+        if (feedback && window.renderMathInElement) {
+          renderMathInElement(feedback, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '\\[', right: '\\]', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false }
+            ],
+            throwOnError: false
+          });
         }
       });
     });
@@ -260,43 +302,43 @@ function initQuiz() {
 /* --- 6. Simulador Interactivo de Fases de Compilación --- */
 const simData = [
   {
-    title: "0. Estado Inicial (Flujo de Entrada)",
+    title: "Estado Inicial (Flujo de Entrada)",
     expr: "posicion := inicial + velocidad * 60",
     desc: "El compilador recibe la sentencia original escrita por el programador en lenguaje de alto nivel. Aún es solo una secuencia plana de caracteres.",
     out: "<strong>Entrada:</strong> Cadena de caracteres<br><pre><code class='language-javascript'>\"posicion := inicial + velocidad * 60\"</code></pre>"
   },
   {
-    title: "1. Análisis Léxico (Scanner / Tokenizer)",
+    title: "Análisis Léxico",
     expr: "<span style='color:var(--accent-color)'>posicion</span> <span style='color:var(--accent-secondary)'>:=</span> <span style='color:var(--accent-color)'>inicial</span> <span style='color:var(--accent-success)'>+</span> <span style='color:var(--accent-color)'>velocidad</span> <span style='color:var(--accent-warning)'>*</span> <span style='color:var(--accent-danger)'>60</span>",
-    desc: "El analizador léxico procesa carácter por carácter y agrupa secuencias de caracteres con significado propio (lexemas) en <strong>tokens</strong> (componentes léxicos), descartando comentarios y espacios.",
+    desc: "El analizador léxico procesa carácter por carácter y agrupa secuencias de caracteres con significado propio en <strong>tokens</strong> (componentes léxicos), descartando comentarios y espacios.",
     out: "<strong>Fila de Tokens:</strong><br>1. <span style='color:var(--accent-color)'>id1</span> (referencia a 'posicion' en la Tabla de Símbolos)<br>2. <span style='color:var(--accent-secondary)'>ASSIGN</span> (:=)<br>3. <span style='color:var(--accent-color)'>id2</span> (referencia a 'inicial')<br>4. <span style='color:var(--accent-success)'>PLUS</span> (+)<br>5. <span style='color:var(--accent-color)'>id3</span> (referencia a 'velocidad')<br>6. <span style='color:var(--accent-warning)'>MULT</span> (*)<br>7. <span style='color:var(--accent-danger)'>NUM</span> (60)"
   },
   {
-    title: "2. Análisis Sintáctico (Parser)",
+    title: "Análisis Sintáctico",
     expr: "posicion := inicial + (velocidad * 60)",
     desc: "El analizador sintáctico comprueba la gramática del flujo de tokens y construye un <strong>Árbol de Sintaxis Abstracta (AST)</strong> que determina el orden lógico de las operaciones, respetando la precedencia del operador * sobre el +.",
     out: "<strong>Estructura Jerárquica (AST):</strong><br><pre><code>      := (asignación)\n     /  \\\n   id1   + (suma)\n        /  \\\n     id2    * (multiplicación)\n           /  \\\n        id3    60</code></pre>"
   },
   {
-    title: "3. Análisis Semántico",
+    title: "Análisis Semántico",
     expr: "posicion := inicial + (velocidad * <span style='color:var(--accent-color)'>ent_a_real(60)</span>)",
     desc: "Verifica la coherencia semántica: que las variables existan y sus tipos sean válidos para las operaciones. Aquí, detecta que 60 es un entero y que la operación requiere reales, por lo que <strong>inserta una conversión explícita</strong> en el árbol.",
     out: "<strong>AST Anotado (con Tipos):</strong><br><pre><code>      := (tipo: real)\n     /  \\\n   id1   + (tipo: real)\n        /  \\\n     id2    * (tipo: real)\n           /  \\\n        id3    ent_a_real (tipo: real)\n                 |\n                60</code></pre>"
   },
   {
-    title: "4. Generación de Código Intermedio",
-    expr: "Representación lineal en código de tres direcciones (TAC)",
+    title: "Generación de Código Intermedio",
+    expr: "Representación lineal en código de tres direcciones",
     desc: "El compilador genera un código intermedio independiente del procesador final. Esto simplifica la traducción y permite optimizaciones genéricas. El formato más usado es el de <strong>tres direcciones</strong>.",
     out: "<strong>Código de Tres Direcciones:</strong><br><pre><code class='language-python'>temp1 = ent_a_real(60)\ntemp2 = id3 * temp1\ntemp3 = id2 + temp2\nid1 = temp3</code></pre>"
   },
   {
-    title: "5. Optimización de Código",
+    title: "Optimización de Código",
     expr: "Reducción y simplificación de las instrucciones",
     desc: "Analiza el código intermedio para hacerlo más rápido y eficiente. En este caso, convierte el entero 60 a real en tiempo de compilación (60.0), eliminando la instrucción redundante `ent_a_real` en tiempo de ejecución.",
     out: "<strong>Código Optimizado:</strong><br><pre><code class='language-python'>temp1 = id3 * 60.0\nid1 = id2 + temp1</code></pre>"
   },
   {
-    title: "6. Generación de Código Final",
+    title: "Generación de Código Final",
     expr: "Traducción a lenguaje ensamblador / máquina real",
     desc: "La fase final traduce el código optimizado a instrucciones nativas para el procesador específico. Se encarga de la <strong>asignación de registros</strong> limitados de la CPU (R1, R2, etc.).",
     out: "<strong>Código Ensamblador Destino:</strong><br><pre><code class='language-x86asm'>MOV  id3, R2\nMUL  #60.0, R2\nMOV  id2, R1\nADD  R2, R1\nMOV  R1, id1</code></pre>"
@@ -322,7 +364,8 @@ function initSimulator() {
     const btn = document.createElement('button');
     btn.className = `sim-step-btn ${idx === 0 ? 'active' : ''}`;
     // Extraer solo la palabra inicial como nombre corto
-    const shortName = step.title.split(' ')[1] || step.title;
+    //const shortName = step.title.split(' ')[1] || step.title;
+    const shortName =  step.title;
     btn.innerText = `${idx}. ${shortName}`;
     btn.addEventListener('click', () => {
       goToSimStep(idx);
