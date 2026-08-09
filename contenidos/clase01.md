@@ -29,7 +29,7 @@
 
 <div class="two-col-flex ratio-40-60">
   <div>
-    <p style="font-size:1.1rem !important; color: var(--text-color) !important;">Un programa que <strong>lee</strong> un programa escrito en un lenguaje y lo <strong>traduce</strong> a un programa equivalente en otro lenguaje.</p>
+    <p style="color: var(--text-color) !important;">Un programa que <strong>lee</strong> un programa escrito en un lenguaje y lo <strong>traduce</strong> a un programa equivalente en otro lenguaje.</p>
     <div class="flipped-callout">
       <h4><i class="fas fa-exchange-alt"></i> Lenguaje fuente → Lenguaje objeto</h4>
       <p>No es una copia ni una transcripción literal: es un programa equivalente, que hace lo mismo, expresado en otro lenguaje.</p>
@@ -46,27 +46,25 @@
 ---
 
 ## ¿Por qué estudiar compiladores?
-
-<div class="grid-3">
-  <div class="card">
-    <h4 class="card-title"><span class="icon"><i class="fas fa-hammer"></i></span>Construir traductores</h4>
-    <p>Intérpretes de comandos, procesadores de configuración, lenguajes de dominio específico. Las tareas básicas de cualquier compilador son esencialmente las mismas.</p>
+<div class="two-col-flex ratio-40-60">
+  <div class="col">
+    <div class="card">
+      <h4 class="card-title"><span class="icon"><i class="fas fa-user-graduate"></i></span>Habilidades que desarrollarás</h4>
+      <ul>
+          <li>Pensar en <strong>gramáticas y lenguajes formales</strong> — útil en parsing, config files, DSLs.</li>
+          <li>Entender el <strong>modelo de ejecución real</strong> de los programas.</li>
+          <li>Diseñar <strong>herramientas</strong> para procesar texto estructurado.</li>
+          <li>Depurar errores <strong>a nivel de lenguaje</strong>, no solo de lógica.</li>
+      </ul>
+    </div>  
   </div>
-  <div class="card">
-    <h4 class="card-title"><span class="icon"><i class="fas fa-user-graduate"></i></span>Ser mejor programador</h4>
-    <p>Saber qué hace el compilador con una variable, con los tipos o con las llamadas a funciones impacta directo en la corrección y eficiencia del código que escribimos.</p>
-  </div>
-  <div class="card">
-    <h4 class="card-title"><span class="icon"><i class="fas fa-project-diagram"></i></span>Aplicación en otras áreas</h4>
-    <p>Procesamiento de lenguaje natural, análisis de protocolos de red, motores de búsqueda: pensar en términos formales sobre el procesamiento de lenguajes.</p>
-  </div>
-</div>
-<div>
+  <div class="col">
   <div class="video-player-wrapper" style="width:100%">
     <video src="videos/u1/u1_03_motivacion.mp4" poster="img/interrogacion.png" controls></video>
   </div>
-
+  </div>
 </div>
+
 
 
 ---
@@ -283,14 +281,14 @@ Note:
 ## Manejador de errores
 
 <p>Cada fase puede encontrar errores de naturaleza distinta. Un compilador bien diseñado <strong>no se detiene ante el primer error</strong>: intenta recuperarse y seguir analizando.</p>
-<div class="two-col-flex ratio-60-40">
+<div class="two-col">
   <div class="col">
   <div class="grid-3">
     <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-      <p>El análisis léxico puede encontrar caracteres o secuencias que no corresponden a ningún token válido del lenguaje.</p>
+      <p>El análisis léxico encuentra caracteres o secuencias que no corresponden a ningún token válido del lenguaje.</p>
     </div>
     <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-      <p class="timeline-desc">El análisis sintáctico detecta incumplimiento a las reglas gramaticales.</p>
+      <p class="timeline-desc">El análisis sintáctico detecta secuencia que imcumplen reglas gramaticales.</p>
     </div>
     <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
       <p class="timeline-desc">El análisis semántico detecta errores de significado.</p>
@@ -344,12 +342,14 @@ Note:
     <p>Generador automático de analizadores sintácticos. Dada la gramática del lenguaje, genera el parser a partir de una especificación formal.</p>
   </div>
 </div>
-<div class="video-player-wrapper" style="width:50%">
-    <video src="videos/u1/u1_07_herramientas.mp4" poster="img/compu_compi.png" controls></video>   
-</div>
-
-<div class="flipped-callout" style="text-align: center;">
-  <p><strong>⚠️ En las próximas semanas daremos las indicaciones para la instalación y uso de estas herramientas.</p>
+<div class="three-col-flex ratio-wide-mid">
+  <div></div>
+  <div class="video-player-wrapper" >
+      <video src="videos/u1/u1_07_herramientas.mp4" poster="img/compu_compi.png" controls></video>   
+  </div>
+  <div class="flipped-callout" style="text-align: center;">
+    <p><strong>⚠️ En las próximas semanas daremos las indicaciones para la instalación y uso de estas herramientas.</p>
+  </div>
 </div>
  
 

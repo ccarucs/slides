@@ -75,7 +75,7 @@ body.light-theme {
 .reveal p, .reveal li {
   line-height: 1.6 !important;
   color: var(--text-muted) !important;
-  font-size: 1.4rem !important;
+  font-size: 1.2rem !important;
 }
 
 .reveal strong {
@@ -362,7 +362,7 @@ body.light-theme .help-key {
 .card p {
   margin: 0 !important;
   /*font-size: 0.85rem !important;  --*/
-  font-size: 1rem !important;
+  /*font-size: 1rem !important;*/
 }
 
 /* Estilo para los Callouts de metodologías */
@@ -377,12 +377,12 @@ body.light-theme .help-key {
 
 .flipped-callout h4 {
   margin: 0 0 10px 0 !important;
-  font-size: 1rem !important;
+  font-size: 1.2rem !important;
 }
 
 .flipped-callout p {
   margin: 0 !important;
-  font-size: 0.85rem !important;
+  /* font-size: 0.85rem !important; */
   color: var(--text-color) !important;
 }
 
@@ -425,7 +425,7 @@ body.light-theme .help-key {
 .timeline-title {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
   color: var(--text-color) !important;
   margin: 0 !important;
 }
@@ -634,7 +634,7 @@ body.light-theme .compare-table tr:hover td {
   padding: 8px 12px;
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 0 6px 6px 0;
@@ -688,7 +688,7 @@ body.light-theme .sim-expression {
   border-radius: 8px;
   padding: 15px;
   border: 1px solid var(--border-color);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 12px;
   min-height: 150px;
@@ -732,7 +732,7 @@ body.light-theme .sim-output-box {
 }
 
 .sim-nav-info {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
@@ -946,7 +946,7 @@ video, iframe {
 .arc-label { fill: var(--text-dim); font-family: var(--mono); font-size: 13px; text-anchor: middle; }
 
 
-
+/*  dos columnas variables  */
 .two-col { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items:center; }
 .onetwo-col { display:grid; grid-template-columns: 1.1fr 0.6fr; gap: 30px; align-items:center; }
 
@@ -1137,4 +1137,26 @@ svg {
 /* Variante cuando la etiqueta va alineada a la izquierda/inicio */
 .simbolo.alineado-inicio {
   text-anchor: start;
+}
+
+
+/* ---- Three-col con ancho variable (usa variables CSS) ---- */
+.three-col-flex {
+  display: grid;
+  grid-template-columns: var(--col-1, 1fr) var(--col-2, 1fr) var(--col-3, 1fr);
+  gap: var(--col-gap, 30px);
+  align-items: var(--col-align, center);
+}
+
+/* Variantes rápidas predefinidas */
+.three-col-flex.ratio-equal    { --col-1: 1fr;   --col-2: 1fr;   --col-3: 1fr; }
+.three-col-flex.ratio-wide-mid { --col-1: 1fr;   --col-2: 2fr;   --col-3: 1fr; } /* Centro más ancho */
+.three-col-flex.ratio-wide-left{ --col-1: 2fr;   --col-2: 1fr;   --col-3: 1fr; } /* Izquierda más ancha */
+.three-col-flex.ratio-wide-right{ --col-1: 1fr;  --col-2: 1fr;   --col-3: 2fr; } /* Derecha más ancha */
+
+/* En mobile/pantallas angostas, apilar en una sola columna */
+@media (max-width: 900px) {
+  .three-col-flex {
+    grid-template-columns: 1fr;
+  }
 }

@@ -184,7 +184,7 @@
     // Función para arrancar Reveal.js (la llamamos solo cuando la ruta esté lista)
     function iniciarReveal() {
       Reveal.initialize({
-        width: 1280,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
+        width: 1400,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
         height: 700,      // (por defecto es 700)
         margin: 0.06,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
         hash: true,
@@ -259,16 +259,31 @@
         document.getElementById('gemini-svg').innerHTML = data;
       });
   </script> -->
-  <script>
+  <!-- <script>
     fetch('img/gemini-svg.svg')
   .then(response => response.text())
   .then(data => {
     const container = document.getElementById('gemini-svg');
+
+    
     container.innerHTML = data;
     // Find the svg element and remove the invalid height attribute
     const svgEl = container.querySelector('svg');
     if (svgEl && svgEl.getAttribute('height') === 'auto') {
       svgEl.removeAttribute('height');
+    }
+  });
+  </script>-->
+  <script>
+   fetch('img/gemini-svg.svg')
+  .then(response => response.text())
+  .then(data => {
+    const targetId = 'gemini-svg'; // Define the ID once to avoid mismatches
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.innerHTML = data;
+    } else {
+      console.warn("Element #${targetId} was not found in the DOM.");
     }
   });
   </script>
