@@ -77,28 +77,24 @@
 ## ¿Por qué estudiar Autómatas Finitos?
 <p>Los autómatas finitos son la base del <strong>Análisis Léxico</strong> dentro de un compilador, pero su aplicación va mucho más allá.</p>
 <div class="two-col-flex ratio-40-60">
-  <div class="col">
-    <h4 class="card-title">Ejemplos</h4>
+  <div class="col">    
     <div class="card">
+      <h4 class="card-title">Ejemplos</h4>
       <h4 class="card-title" style="font-size: 1rem !important; text-align: center;"><span class="icon"><i class="fas fa-check-double"></i></span><br>Circuitos digitales</h4>
       <p style="font-size: 0.85rem; padding-left: 15px; margin: 0; color: var(--text-muted);">
         Diseño y verificación de circuitos secuenciales.
-      </p>
-    </div> 
-    <p></p>
-    <div class="card">
+      </p>   
+      <p></br></p>  
       <h4 class="card-title" style="font-size: 1rem !important; text-align: center;"><span class="icon"><i class="fas fa-robot"></i></span><br>Robótica</h4>
       <p style="font-size: 0.85rem; padding-left: 15px; margin: 0; color: var(--text-muted);">
         Diseño de comportamientos ante estímulos externos.
-      </p>
-    </div> 
-    <p></p>
-    <div class="card">
+      </p> 
+      <p></br></p>     
       <h4 class="card-title" style="font-size: 1rem !important; text-align: center;"><span class="icon"><i class="fas fa-search"></i></span><br>Minería de textos</h4>
       <p style="font-size: 0.85rem; padding-left: 15px; margin: 0; color: var(--text-muted);">
         Detección de patrones y frases en grandes volúmenes de texto.
       </p>
-    </div> 
+   </div> 
   </div>
   <div class="col">
     <div class="video-player-wrapper" style="width: 70%;">
@@ -114,6 +110,7 @@
 </div>
 
 ---
+
 
 ## Un ejemplo cotidiano
   <div style="font-size:1.2rem">
@@ -365,7 +362,7 @@ al salir del ciclo:
 </p>
 </div>
 <div style="display: flex; align-items: center; justify-content: center;">
-  <img src="img/u2_04_implemAF.png" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  <img src="img/u2_04_implemAF.png" style="max-width: 85%; height: auto; display: block; margin: 0 auto;">
 </div>
 </div>
 
@@ -391,7 +388,7 @@ al salir del ciclo:
     <h4 class="card-title" style="font-size: 0.95rem !important;"><span class="icon"><i class="fas fa-pencil-alt"></i></span>Ejercicio 2</h4>
     <p style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted);">
       Diseñar un AFD que reconozca cadenas sobre el alfabeto \(\Sigma = \{x, y\}\) que acepte cadenas con longitud mayor a uno y par.</br>
-      Por ejemplo las cadenas xx, yxyx, xyxxxy deberían ser aceptadas porque tienen longitud par mayor a 1.
+      Por ej. las cadenas \(xx\), \(yxyx\), \(xyxxxy\) deberían ser aceptadas porque tienen longitud par mayor a 1.
     </p>
   </div>
   <div class="card" style="border-color: var(--card2)">
@@ -399,7 +396,7 @@ al salir del ciclo:
     <p style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted);">
       Diseñar un AFD que acepte números enteros y números decimales.
       </br>
-      Por ejemplo, debería aceptar los números 191, 34 (son enteros) pero también aceptar 28.34, 1.123 (números decimales).
+      Por ej., debería aceptar los números 191, 34 (son enteros) pero también aceptar 28.34, 1.123 (números decimales).
     </p>
   </div>
 </div>
@@ -409,3 +406,27 @@ al salir del ciclo:
     <i class="fas fa-info-circle"></i> Traé tus diseños en papel o formato digital a la clase presencial. Los discutiremos y validaremos en grupo.
   </p>
 </div>
+
+---
+
+
+  <h2 class="text-gradient">Resumen de la Clase</h2> 
+  <div class="grid-2">
+    <div class="card">
+      <h4 class="card-title" ><span class="icon"><i class="fas fa-check-double"></i></span>Lo que aprendimos</h4>
+      <ul>
+        <li>Un <strong>autómata finito</strong> es un modelo matemático de un sistema con estados</li>
+        <li>Se representa gráficamente con un <strong>diagrama de transiciones</strong> y de manera tabular con la <strong>tabla de transiciones</strong></li>
+        <li>Formalmente, un <strong>Autómata Finito Determinista</strong> es una quíntupla M = (S, Σ, δ, s₀, F). La función de transición δ es determinista</li>
+        <li>La conexión con el análisis léxico es directa: los tokens de un lenguaje de programación se pueden describir con autómatas finitos (más adelante retomaremos este punto)</li>
+      </ul>
+    </div>          
+    <div class="card">
+      <h4 class="card-title" style="font-size: 1rem !important; color: var(--accent-success) !important;"><span class="icon"><i class="fas fa-calendar-day"></i></span>Próxima lección: </h4>
+      <p style="margin-top:15px; text-align:lef; color:var(--text-muted);"> En la siguiente lección: <strong> En la siguiente lección vamos a ver los <strong>autómatas finitos no deterministas</strong> y cómo se convierten en autómatas deterministas equivalentes. Ese proceso de conversión es fundamental para entender cómo funciona Lex.</p>
+    </div>    
+  </div>
+
+  <div class="flipped-callout" style="text-align: center;">
+    <p><strong>⚠️ Recordatorio:</strong> Asegúrate de completar el cuestionario de autoevaluación en la plataforma antes de asistir a la clase presencial.</p>
+  </div>

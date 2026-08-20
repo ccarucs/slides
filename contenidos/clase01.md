@@ -377,4 +377,28 @@ Note:
 </table>
 
 
+---
+
+
+  <h2 class="text-gradient">Resumen de la Clase</h2> 
+  <div class="grid-2">
+    <div class="card">
+      <h4 class="card-title" ><span class="icon"><i class="fas fa-check-double"></i></span>Lo que aprendimos</h4>
+      <ul>
+        <li>Un <strong>compilador</strong> traduce código fuente a objeto y detecta errores.</li>
+        <li >Trabaja coordinado con el <strong>preprocesador, ensamblador y linker</strong>.</li>
+        <li>Consta de <strong>6 fases</strong> lógicas fundamentales.</li>
+        <li>La separación <strong>Front End / Back End</strong> fomenta la reutilización.</li>
+        <li>Las herramientas como <strong>Lex y Yacc</strong> se basan en teoría de autómatas.</li>
+      </ul>
+    </div>          
+    <div class="card">
+      <h4 class="card-title" style="font-size: 1rem !important; color: var(--accent-success) !important;"><span class="icon"><i class="fas fa-calendar-day"></i></span>Próxima lección: </h4>
+      <p style="margin-top:15px; text-align:lef; color:var(--text-muted);"> En la siguiente lección: <strong> iniciaremos el estudio formal de la primera fase: <strong>Análisis Léxico</strong>. Veremos cómo se definen las expresiones regulares para representar números, palabras clave e identificadores en un programa.</p>
+    </div>    
+  </div>
+
+  <div class="flipped-callout" style="text-align: center;">
+    <p><strong>⚠️ Recordatorio:</strong> Asegúrate de completar el cuestionario de autoevaluación en la plataforma antes de asistir a la clase presencial.</p>
+  </div>
 

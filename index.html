@@ -19,9 +19,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Estilos personalizados premium -->
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/custom.css"> 
 
-
+  <!-- Carga svg  -->
+  <script src="js/svg-loader.js" defer></script>
 
 </head>
 <body>
@@ -103,12 +104,12 @@
        </div>
       </br>
       <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-secondary); padding: 15px; border-radius: 0 8px 8px 0; margin-top: 20px;">        
-        <h2 id="portada-unidad" style="font-size: 1.3rem !important; font-weight: 600; color: var(--text-color); margin-bottom: 5px !important;">Cargando unidad...</h2>
-        <h2 id="portada-tema" style="font-size:1.3rem !important; color: var(--text-muted); margin: 0 !important;">Cargando tema...</h2>
+        <h2 id="portada-unidad" class="text-gradient" style="font-size: 1.5rem !important; font-weight: 600; color: var(--text-color); margin-bottom: 5px !important;">Cargando unidad...</h2>
+        <h2 id="portada-tema"  style="font-size:1.5rem !important; color: var(--text-muted); margin: 0 !important;">Cargando tema...</h2>
       </div>
 
       </br>
-      <p class="subtitulo" style="margin-top:1rem; font-size:0.8rem;">Mg. Lic. Carolina Cardoso - Ing. Miguel Tolaba</p>
+      <p class="subtitulo" style="margin-top:1rem; font-size:0.8rem;">Lic. Carolina Cardoso - Ing. Miguel Tolaba</p>
  
       <div class="grid" style="align-items: center; grid-gap: 30px;">  
          <div style="text-align: center;">
@@ -130,28 +131,7 @@
       </section>
 
 
-      <!-- SLIDE: Resumen de la Clase -->
-      <section data-menu-title="Resumen" data-transition="slide-in fade-out">
-        <h2 class="text-gradient">Resumen de la Clase</h2>
-        <div class="grid-2">
-          <div class="card">
-            <h4 class="card-title" style="font-size: 1rem !important;"><span class="icon"><i class="fas fa-check-double"></i></span>Lo que aprendimos</h4>
-            <p id="final_resumen"style="padding-left: 15px; margin: 0; color: var(--text-muted);">
-              
-            </p>
-          </div>          
-          <div class="card">
-            <h4 class="card-title" style="font-size: 1rem !important; color: var(--accent-success) !important;"><span class="icon"><i class="fas fa-calendar-day"></i></span>Próximo Paso: </h4>
-            <p id="final_proximo" style="margin-bottom: 10px !important;">
-            
-            </p>
-           </div>
-          
-        </div>
-        <div class="flipped-callout" style="text-align: center;">
-          <p><strong>⚠️ Recordatorio:</strong> Asegúrate de completar el cuestionario de autoevaluación en la plataforma antes de asistir a la clase presencial.</p>
-        </div>
-      </section>
+
     </div>
     
   </div>
@@ -184,7 +164,7 @@
     // Función para arrancar Reveal.js (la llamamos solo cuando la ruta esté lista)
     function iniciarReveal() {
       Reveal.initialize({
-        width: 1400,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
+        width: 1280,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
         height: 700,      // (por defecto es 700)
         margin: 0.06,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
         hash: true,
@@ -209,8 +189,6 @@
       if (datosClases[claseParam]) {
         document.getElementById('portada-unidad').innerText = datosClases[claseParam].unidad;
         document.getElementById('portada-tema').innerText = datosClases[claseParam].tema;
-        document.getElementById('final_resumen').innerHTML = datosClases[claseParam].resumen;
-        document.getElementById('final_proximo').innerHTML = datosClases[claseParam].proximo;
 
         // Guardar el tema para el pie de página y refrescarlo si el footer ya está listo
         window.temaClaseActual = datosClases[claseParam].tema;
@@ -244,48 +222,6 @@
 <!-- Lógica personalizada de controles e interactividad -->
   <script src="js/custom.js"></script>
 
-  <!-- Script para cargar e iniciar Mermaid -->
-  <!--<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.min.js"></script>
-  <script>
-    // mermaid.initialize({ startOnLoad: true });
-    mermaid.initialize({
-      theme: 'dark' // 'default', 'forest', 'neutral', 'dark'
-    });
-  </script> -->
-  <!-- <script>
-    fetch('img/gemini-svg.svg')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('gemini-svg').innerHTML = data;
-      });
-  </script> -->
-  <!-- <script>
-    fetch('img/gemini-svg.svg')
-  .then(response => response.text())
-  .then(data => {
-    const container = document.getElementById('gemini-svg');
-
-    
-    container.innerHTML = data;
-    // Find the svg element and remove the invalid height attribute
-    const svgEl = container.querySelector('svg');
-    if (svgEl && svgEl.getAttribute('height') === 'auto') {
-      svgEl.removeAttribute('height');
-    }
-  });
-  </script>-->
-  <script>
-   fetch('img/gemini-svg.svg')
-  .then(response => response.text())
-  .then(data => {
-    const targetId = 'gemini-svg'; // Define the ID once to avoid mismatches
-    const el = document.getElementById(targetId);
-    if (el) {
-      el.innerHTML = data;
-    } else {
-      console.warn("Element #${targetId} was not found in the DOM.");
-    }
-  });
-  </script>
+  
 </body>
 </html>

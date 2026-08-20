@@ -29,7 +29,7 @@ body.light-theme {
   --bg-color: #f8fafc;
   --text-color: #203462;
   --text-muted: #475569;
-  --accent-color: #0284c7; /* Azul cielo */
+  --accent-color: #06b6d4; /* #0284c7; */ /* Azul cielo */
   --accent-secondary: #4f46e5; /* Índigo */
   --accent-warning: #f59e0b; /* Ámbar */
   --accent-danger: #ef4444; /* Rojo */
@@ -70,7 +70,39 @@ body.light-theme {
 .reveal h2 {
   font-size: 1.3em !important;
   border-bottom: none !important;
+  margin-top: 0 !important;
 }
+
+/* --- Alineación superior de las diapositivas ---
+   Por defecto Reveal.js centra verticalmente el contenido (config center:true
+   en index.html), lo que deja mucho aire arriba y el título "flotando" a
+   media pantalla. Forzamos que el bloque de contenido arranque pegado
+   arriba, así el h2 queda más alto y el resto del contenido puede usar
+   todo el alto/ancho disponible de la slide. Se sobreescribe con !important
+   porque Reveal aplica flexbox inline vía la clase .center. */
+.reveal.center .slides section,
+.reveal .slides section {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  height: 100% !important;
+  padding-top: 0.2em !important;
+  box-sizing: border-box !important;
+}
+
+/* La portada (primera slide) sí queremos que se vea centrada verticalmente,
+   como una tapa de libro, así que la excluimos del top-align general. */
+.reveal .slides > section:first-child {
+  justify-content: center !important;
+}
+
+/* Slides verticales anidadas (data-separator-vertical) heredan el mismo
+   comportamiento top-align gracias al selector general de arriba. Como
+   align-items:stretch ya está seteado en la sección, los hijos directos
+   (h1/h2/p/div/etc.) se estiran automáticamente al 100% del ancho
+   disponible, salvo que ellos mismos fijen su propio ancho/max-width. */
+
 
 .reveal p, .reveal li {
   line-height: 1.6 !important;
@@ -89,6 +121,9 @@ body.light-theme {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+.shadow{
+  text-shadow: 1px 1px var(--text-muted);
 }
 
 /* --- Elementos de UI Flotantes --- */
@@ -374,13 +409,21 @@ body.light-theme .help-key {
   text-align: left;
   margin-top: 15px;
 }
+.flipped-callout-bis {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.15));
+  border-left: 4px solid var(--accent-secondary);
+  border-radius: 0 12px 12px 0;
+  padding: 20px;
+  text-align: left;
+  margin-top: 15px;
+}
 
-.flipped-callout h4 {
+.flipped-callout h4, .flipped-callout-bis h4 {
   margin: 0 0 10px 0 !important;
   font-size: 1.2rem !important;
 }
 
-.flipped-callout p {
+.flipped-callout p, .flipped-callout-bis p {
   margin: 0 !important;
   /* font-size: 0.85rem !important; */
   color: var(--text-color) !important;
@@ -974,7 +1017,7 @@ video, iframe {
 .split { display:flex; gap: 30px; align-items:flex-start; }
 .split .col { flex:1; }
 
-table { border-collapse: collapse; font-family: var(--mono); font-size:0.65em; }
+table { border-collapse: collapse; font-family: var(--mono); font-size:0.5em; }
 table th, table td { border:1px solid var(--card-border); padding: 8px 16px; text-align:center; }
 table th { background: var(--bg-alt); color: var(--blue); }
 table td { color: var(--text); }
@@ -1159,4 +1202,9 @@ svg {
   .three-col-flex {
     grid-template-columns: 1fr;
   }
+}
+
+/* Resaltado de lenguajes formales en quizzes */
+.math-lang {
+  color: var(--text-muted) !important;
 }
