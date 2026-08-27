@@ -14,5 +14,9 @@
   "04": {
     "unidad": "Unidad 2: Análisis Léxico",
     "tema": "Lenguajes Regulares y Expresiones Regulares"
+  },
+  "05": {
+    "unidad": "Unidad 2: Análisis Léxico",
+    "tema": "Gramáticas Regulares"
   }
 }
