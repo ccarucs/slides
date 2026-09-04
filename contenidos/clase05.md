@@ -69,7 +69,7 @@ Todos aprendimos gramática en la escuela. Aprendimos que una oración tiene suj
         <td> 
           <div class="card">
             <h4 class="card-title"><span class="icon"><i class="fas fa-font"></i></span>2. Símbolos Terminales (\(T\))</h4>
-            <p style="font-size: 0.85rem;">Los símbolos definitivos que aparecen en las cadenas finales del lenguaje generado.</p>
+            <p style="font-size: 0.85rem;">Los símbolos que aparecen en las cadenas finales del lenguaje generado.</p>
             </br>
           </div>
         </td>
@@ -78,7 +78,7 @@ Todos aprendimos gramática en la escuela. Aprendimos que una oración tiene suj
         <td>
           <div class="card">
             <h4 class="card-title"><span class="icon"><i class="fas fa-shapes"></i></span>3. Símbolos No Terminales (\(N\))</h4>
-            <p style="font-size: 0.85rem;">Variables sintácticas intermedias o categorías abstractas que ayudan a estructurar la derivación.</p>
+            <p style="font-size: 0.85rem;">Variables que ayudan a estructurar la derivación.</p>
           </div>
         </td>
         <td>
