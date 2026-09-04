@@ -51,6 +51,7 @@ body.light-theme {
 
 .reveal {
   color: var(--text-color) !important;
+  background-color: #0c1017 !important; /* agregado. El color azul oscuro de tu fondo */
 }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
@@ -88,7 +89,11 @@ body.light-theme {
   align-items: stretch !important;
   height: 100% !important;
   padding-top: 0.2em !important;
-  box-sizing: border-box !important;
+  /* box-sizing: border-box !important;  */
+
+  padding-left: 60px;
+  padding-right: 60px;
+  box-sizing: border-box;
 }
 
 /* La portada (primera slide) sí queremos que se vea centrada verticalmente,

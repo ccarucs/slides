@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="css/custom.css"> 
 
   <!-- Carga svg  -->
-  <script src="js/svg-loader.js" defer></script>
+  <!--<script src="js/svg-loader.js" defer></script>-->
 
 
 </head>
@@ -161,13 +161,37 @@
 
     const rutaMarkdown = `contenidos/clase${claseParam}.md`;
     const seccionMarkdown = document.getElementById('diapo-dinamica');
-
-    // Función para arrancar Reveal.js (la llamamos solo cuando la ruta esté lista)
     function iniciarReveal() {
       Reveal.initialize({
-        width: 1280,      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
-        height: 700,      // (por defecto es 700)
-        margin: 0.06,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
+        // 1. Cambiamos a porcentajes para que rompa el límite rígido y use todo el iframe
+        width: "100%",      
+        height: "100%",      
+        margin: 0, // Quitamos márgenes para que se pegue a los bordes laterales del texto
+
+        hash: true,
+        minScale    : 0.10,
+        maxScale    : 3.00,
+        slideNumber: 'c/t',
+        progress: true,
+        controls: true,
+        keyboard: true,
+        touch: true,
+        
+        // 2. Desactivamos el centrado vertical estricto para que el layout fluya horizontalmente
+        center: false, 
+        
+        transition: 'slide',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+      });
+    }
+
+    // Función para arrancar Reveal.js (la llamamos solo cuando la ruta esté lista)
+    /*
+    function iniciarReveal() {
+      Reveal.initialize({
+        width: "100%",      // <-- Aumenta el ancho base de las diapositivas (por defecto es 960)
+        height: "100%",      // (por defecto es 700)
+        margin: 0,     // <-- Reduce ligeramente el margen para aprovechar mejor el viewport
         hash: true,
         minScale    : 0.10,
         maxScale    : 3.00,
@@ -180,7 +204,7 @@
         transition: 'slide',
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
       });
-    }
+    } */
 
     // 1. Cargar los datos del JSON
   fetch('contenidos/clases.json')
