@@ -303,9 +303,6 @@ Formalmente, una gramática G se define como una cuádrupla (N, T, S, P). N y T 
       <div style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent-success); margin: 15px 0;">
         \(L(G) = \{ w \in T^* \mid S \Rightarrow^* w \}\)
       </div>
-      <p style="font-size: 0.85rem; color: var(--text-muted);">
-        Si una cadena intermedia contiene algún símbolo de \(N\), se denomina <em>forma sentencial</em>, pero aún no pertenece formalmente a \(L(G)\).
-      </p>
     </div>
 
 Note:
