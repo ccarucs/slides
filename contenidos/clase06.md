@@ -183,13 +183,13 @@ Note: Verificar que quedó claro el bloque anterior antes de avanzar. Si la mayo
   <div class="grid" style="gap:20px;">
     <div class="card">
       <div class="card-title"><span class="icon"><i class="fas fa-signature"></i></span> Identificadores</div>
-      <p>Nombres de variables, funciones, arreglos. Patrón: <code>letra(letra|dígito)*</code>. Sus valores se guardan en la tabla de símbolos.</p>
+      <p>Nombres de variables, funciones, arreglos. Sus valores se guardan en la tabla de símbolos.</p>
       <hr>
       <div class="card-title"><span class="icon"><i class="fas fa-key"></i></span> Palabras reservadas</div>
-      <p><code>if</code>, <code>then</code>, <code>else</code>, <code>while</code>... Tienen el <strong>mismo patrón</strong> que los identificadores: una cadena es <em>id</em> solo si no es palabra clave.</p>
+      <p><code>if</code>, <code>then</code>, <code>else</code>, <code>while</code>... Tienen el <strong>mismo patrón</strong> que los identificadores.</p>
       <hr>
       <div class="card-title"><span class="icon"><i class="fas fa-plus"></i></span> Números y símbolos</div>
-      <p>Operadores aritméticos, relacionales, paréntesis, punto y coma. Su forma depende de la sintaxis concreta del lenguaje.</p>
+      <p>Operadores aritméticos, relacionales, paréntesis, punto y coma. </p>
       <hr>
       <div class="card-title"><span class="icon"><i class="fas fa-trash"></i></span> Tokens descartados</div>
       <p>Comentarios, espacios en blanco, tabulaciones, saltos de línea. Se reconocen, pero nunca llegan al analizador sintáctico.</p>
@@ -264,9 +264,9 @@ Note: Esta pregunta distingue dos subcasos del preanálisis que suelen confundir
 ---
 
 ## Construcción del analizador léxico
+
 <div class="two-col">
-  <div class="col">
-    <span> ¿a mano o con un generador?</span>
+  <div class="col">    
     <div class="card">
       <div class="card-title"><span class="icon"><i class="fas fa-hammer"></i></span> "A mano"</div>
       <p>Se implementa directamente el código que reconoce cada token, con estructuras de control que replican el comportamiento de un autómata.</p>
@@ -348,7 +348,7 @@ Note: Esta pregunta funciona como repaso integrador de toda la Unidad 2: conecta
   </div>
   <div class="card">
     <div class="card-title" style="justify-content:center;"><i class="fas fa-project-diagram"></i> Gramáticas regulares</div>
-    <p class="descripcion">Generan las cadenas del lenguaje mediante producciones.</p>
+    <p class="descripcion">Generan cadenas del lenguaje mediante producciones.</p>
   </div>
 </div>
 
