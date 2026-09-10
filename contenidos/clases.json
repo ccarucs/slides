@@ -18,5 +18,9 @@
   "05": {
     "unidad": "Unidad 2: Análisis Léxico",
     "tema": "Gramáticas Regulares"
+  },
+  "06": {
+    "unidad": "Unidad 2: Análisis Léxico",
+    "tema": "Análisis Léxico: Tokens, Patrones y Construcción del Analizador"
   }
 }
