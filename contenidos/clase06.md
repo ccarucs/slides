@@ -79,7 +79,7 @@ Note: El analizador léxico recibe el programa fuente como un flujo de caractere
       <h4><i class="fas fa-sync-alt"></i> ¿Quién manda?</h4>
       <p>Es el analizador sintáctico quien controla el ritmo: llama a <code>getNextToken()</code> cada vez que necesita un token nuevo, y el léxico responde llamando internamente a <code>getChar()</code> sobre el flujo de caracteres. Ambos comparten acceso a la <strong>tabla de símbolos</strong>.</p>
     </div>
-    <div><img src="img/getChar_getToken.jpeg" style="align:center"></img></div>
+    <div><img src="img/getChar_getToken.png" style="align:center"></img></div>
   </div>
   <div class="col">
     <div class="video-player-wrapper" style="width:100%">
