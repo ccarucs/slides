@@ -1213,3 +1213,8 @@ svg {
 .math-lang {
   color: var(--text-muted) !important;
 }
+
+/* ubicar un div en la parte superior */
+.col {
+  align-self: flex-start; /* Fuerza a esta columna a pegarse arriba */
+}

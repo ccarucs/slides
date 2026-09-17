@@ -1,31 +1,30 @@
 <!-- HOJA DE RUTA --->
-<h2>En esta clase</h2>
-<div class="grid-2">  
-  <div class="card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-    <span class="text-badge" style="margin-bottom: 5px !important;">
-      <i class="fas fa-list-ul"></i> Hoja de ruta de la clase (Parte 2) </span>    
-    <ul style="font-size: 0.80rem !important; line-height: 1.6; margin-left: 20px; font-weight: bold;">
-      <li>Las Gramáticas Libres del Contexto</li>
-      <li>Derivaciones canónicas por izquierda y por derecha</li>
-      <li>El árbol de análisis sintáctico</li>
-      <li>Teorema de equivalencia entre GIC y Autómatas con Pila</li>
-      <li>Construcción de un AP a partir de una GIC</li>
-      <li>El problema de la ambigüedad en sintaxis y resolución de precedencia</li>
-    </ul>       
-  </div>  
-  <div>
-    <!-- PROMPT PARA GENERAR IMAGEN:
-    Ilustración conceptual de la estructura sintáctica de un lenguaje de programación representada como un árbol jerárquico brillante (Parse Tree) compuesto de nodos de código, conectando gramáticas formales con el compilador. Estilo tecnológico moderno con tonos azul oscuro, cian y esmeralda.
-    -->
-    <div class="video-player-wrapper" style="margin-top: 15px;">
-      <video src="videos/c07/glc_intro.mp4"  controls></video>
-    </div>
-  </div>  
-</div>
+## En esta clase
+
 <div class="flipped-callout" style="margin-top: 10px !important; margin-bottom: 10px !important; padding: 15px !important;">
   <h4><i class="fas fa-lightbulb"></i> Unidad 3: La base formal del Análisis Sintáctico</h4>
   <p>En la primera parte estudiamos los autómatas con pila como reconocedores. Ahora estudiamos su equivalente generador: las <strong>Gramáticas Libres del Contexto (GIC)</strong>, el lenguaje estándar con el que se especifica la sintaxis de los lenguajes de programación reales.</p>
 </div>
+<div class="two-col">  
+  <div class="col card" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+    <span class="text-badge" style="margin-bottom: 5px !important;">
+      <i class="fas fa-list-ul"></i> Hoja de ruta de la clase (Parte 2) </span>    
+    <ul style="font-size: 0.80rem !important; line-height: 1.6; margin-left: 20px; font-weight: bold;">
+      <li>Las Gramáticas Libres del Contexto</li>
+      <li>Derivaciones por izquierda y por derecha</li>
+      <li>Árbol de análisis sintáctico</li>
+      <li>Teorema de equivalencia entre GIC y AP</li>
+      <li>Construcción de un AP a partir de una GIC</li>
+      <li>El problema de la ambigüedad en sintaxis</li>
+    </ul>       
+  </div>  
+  <div class="col">
+    <div class="video-player-wrapper" style="margin-top: 5px;">
+      <video src="videos/c07/glc_intro.mp4"  controls></video>
+    </div>
+  </div>  
+</div>
+
 
 Note:
 En el video anterior vimos los autómatas con pila: máquinas que pueden reconocer lenguajes más complejos que los autómatas finitos. Ahora vamos a conocer la otra cara de esa moneda: las gramáticas que generan exactamente esos mismos lenguajes. Al terminar esta lección van a entender qué es una GIC, cómo se define formalmente, qué son las derivaciones, cómo se construye el árbol sintáctico, por qué son equivalentes a los AP y cómo solucionar el problema de la ambigüedad.

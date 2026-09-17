@@ -527,7 +527,7 @@ El segundo ejemplo es un lenguaje un poco más interesante. Se trata de cadenas 
 ## Traza de muestra para <code>w = xxyxx</code>
 
 <p style="font-size:0.85rem; margin-top:0px">Comprobemos la ejecución del segundo ejemplo sobre la cadena <code>xxyxx</code> (\(n=2, m=1\)):</p>
-<div class="two-col">
+<div class="two-col-flex ratio-40-60">
   <div class="col">
     <table class="compare-table" style="width:100%;">
       <thead>
