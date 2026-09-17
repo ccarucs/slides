@@ -180,7 +180,7 @@ Verificar que la definición del lado izquierdo de las producciones GIC haya que
 
 <p style="font-size:0.85rem; margin-top:0px">Una <strong>derivación</strong> es la secuencia de reemplazos de no terminales aplicando reglas de producción desde el no terminal inicial hasta obtener una cadena pura de terminales.</p>
 <p style="text-align:left; margin-top:0px">En las GIC, el lado derecho de una regla puede contener varios no terminales. Por eso pueden existir distintas secuencias de reemplazo. Para evitar ambigüedades en el proceso se definen la derivación por izquierda y por derecha. Ambas llegan a la misma cadena final.</p>
-<div class="two-col" style="margin-top:10px;">
+<div class="two-col" style="margin-top:1px;">
   <div class="col">
     <div class="flipped-callout-bis">
       <h4 class="card-title"><span class="icon"><i class="fas fa-arrow-left"></i></span> Derivación por Izquierda (\(\Rightarrow_L\))</h4>
@@ -195,7 +195,7 @@ Verificar que la definición del lado izquierdo de las producciones GIC haya que
   </div>
 </div>
 
-<div class="card" style="margin-top:10px; padding:10px;">
+<div class="card" style="margin-top:1px; padding:10px;">
   <h4 class="card-title"><i class="fas fa-stream"></i> Ejemplo: Gramática con reglas \(S \rightarrow zMNz, M \rightarrow aMa \mid z, N \rightarrow bNb \mid z\)</h4>
   <p style="font-size:0.8rem; margin:5px 0;">Para generar la cadena <code>zazabzbz</code>:</p>
   <ul style="font-size:0.75rem; line-height:1.5;">
