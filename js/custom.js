@@ -15,6 +15,7 @@ function init() {
       updateActiveMenu(event.indexh);
       // Pausar videos que queden en diapositivas anteriores
       pauseAllVideos();
+      initSimulator();
     });
     
     // Sincronizar el estado del menú actual inicial
@@ -299,8 +300,8 @@ function initQuiz() {
   });
 }
 
-/* --- 6. Simulador Interactivo de Fases de Compilación --- */
-const simData = [
+/* --- 6. Simuladores Interactivos --- */
+const simDataClase01 = [
   {
     title: "Estado Inicial (Flujo de Entrada)",
     expr: "posicion := inicial + velocidad * 60",
@@ -345,68 +346,167 @@ const simData = [
   }
 ];
 
-let simCurrentIndex = 0;
+// Data para el Ejercicio Guiado de GIC (Clase 07_2)
+const simDataClase07_2 = [
+  {
+    title: "¿Cuál es el Símbolo Inicial?",
+    expr: "Símbolo Inicial: <span style='color:var(--accent-color); font-weight:bold;'>S</span> &nbsp;&in;&nbsp; N",
+    desc: "El <strong>símbolo inicial</strong> es el símbolo No Terminal distinguido desde el cual comienza toda derivación en la gramática.",
+    out: "<div style='font-size:0.85rem; line-height:1.6;'>" +
+         "<strong>Símbolo Inicial:</strong> <span style='color:var(--accent-color); font-weight:bold; font-size:1.1rem;'>S</span><br><br>" +
+         "• Es el punto de partida único definido en la cuádrupla \\(G = (N, T, S, P)\\).<br>" +
+         "• Toda derivación de una cadena inicia aplicando una regla con lado izquierdo <strong>S</strong>." +
+         "</div>"
+  },
+  {
+    title: "¿Cuáles son los No Terminales?",
+    expr: "N = \\{ S, L \\}",
+    desc: "Los <strong>No Terminales</strong> son variables sintácticas que representan componentes jerárquicos y se reemplazan mediante reglas de producción.",
+    out: "<div style='font-size:0.85rem; line-height:1.6;'>" +
+         "<strong>Conjunto de No Terminales (N):</strong><br><br>" +
+         "• <span style='color:var(--accent-color); font-weight:bold;'>S:</span> Representa una expresión o elemento (o encerrado entre paréntesis).<br>" +
+         "• <span style='color:var(--accent-color); font-weight:bold;'>L:</span> Representa una lista de elementos separados por comas.<br><br>" +
+         "<em>Formulación matemática:</em> \\(N = \\{S, L\\}\\)" +
+         "</div>"
+  },
+  {
+    title: "¿Cuáles son los Terminales?",
+    expr: "T = \\{ a, '(', ')', ',' \\}",
+    desc: "Los <strong>Terminales</strong> son los símbolos finales (tokens del lenguaje) que componen la cadena generada. No pueden reemplazarse por reglas.",
+    out: "<div style='font-size:0.85rem; line-height:1.6;'>" +
+         "<strong>Conjunto de Terminales (T):</strong><br><br>" +
+         "• <span style='color:var(--accent-color); font-weight:bold;'>a</span> &nbsp;&nbsp; <br>" +
+         "• <span style='color:var(--accent-color); font-weight:bold;'>(</span> y <span style='color:var(--accent-color); font-weight:bold;'>)</span> &nbsp;&nbsp; <br>" +
+         "• <span style='color:var(--accent-color); font-weight:bold;'>,</span> &nbsp;&nbsp; </br><br>" +
+         "<em>Propiedad:</em> \\(N \\cap T = \\emptyset\\) (conjuntos disjuntos)." +
+         "</div>"
+  },
+  {
+    title: "Derivación por Izquierda, cadena (a,a)",
+    expr: "\\(S \\Rightarrow_L (L) \\Rightarrow_L (L, S) \\Rightarrow_L (S, S) \\Rightarrow_L (a, S) \\Rightarrow_L (a, a)\\)",
+    desc: "En la <strong>derivación por izquierda</strong> (\\(\\Rightarrow_L\\)), en cada paso de reemplazo se elige siempre el símbolo No Terminal ubicado <strong>más a la izquierda</strong>.",
+    out: "<div style='font-size:0.85rem; line-height:1.5;'>" +
+         "<strong>Pasos de Derivación por Izquierda:</strong><br>" +
+         "<ol style='margin-left:20px; margin-top:5px; line-height:1.6;'>" +
+         "<li>\\(S \\Rightarrow (L)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Regla 1: \\(S \\rightarrow (L)\\)</span></li>" +
+         "<li>\\((L) \\Rightarrow (L, S)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Regla 2: \\(L \\rightarrow L, S\\)</span></li>" +
+         "<li>\\((L, S) \\Rightarrow (S, S)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Reemplaza L más a la izq por \\(S \\rightarrow S\\)</span></li>" +
+         "<li>\\((S, S) \\Rightarrow (a, S)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Reemplaza S más a la izq por \\(a \\rightarrow S \\rightarrow a\\)</span></li>" +
+         "<li>\\((a, S) \\Rightarrow (a, a)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Reemplaza el S restante por \\(a \\rightarrow S \\rightarrow a\\)</span></li>" +
+         "</ol>" +
+         "</div>"
+  },
+  {
+    title: "Derivación por Derecha, cadena (a,a)",
+    expr: "\\(S \\Rightarrow_R (L) \\Rightarrow_R (L, S) \\Rightarrow_R (L, a) \\Rightarrow_R (S, a) \\Rightarrow_R (a, a)\\)",
+    desc: "En la <strong>derivación por derecha</strong> (\\(\\Rightarrow_R\\)), en cada paso de reemplazo se elige siempre el símbolo No Terminal ubicado <strong>más a la derecha</strong>.",
+    out: "<div style='font-size:0.80rem; line-height:1.5;'>" +
+         "<strong>Pasos de Derivación por Derecha:</strong><br>" +
+         "<ol style='margin-left:20px; margin-top:5px; line-height:1.6;'>" +
+         "<li>\\(S \\Rightarrow (L)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Regla 1: \\(S \\rightarrow (L)\\)</span></li>" +
+         "<li>\\((L) \\Rightarrow (L, S)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Regla 2: \\(L \\rightarrow L, S\\)</span></li>" +
+         "<li>\\((L, S) \\Rightarrow (L, a)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Reemplaza S más a la der por \\(a \\rightarrow S \\rightarrow a\\)</span></li>" +
+         "<li>\\((L, a) \\Rightarrow (S, a)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Reemplaza L por \\(S \\rightarrow L \\rightarrow S\\)</span></li>" +
+         "<li>\\((S, a) \\Rightarrow (a, a)\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:var(--text-muted); font-size:0.8em;'>Reemplaza S por \\(a \\rightarrow S \\rightarrow a\\)</span></li>" +
+         "</ol>" +
+         "</div>"
+  }
+];
 
 function initSimulator() {
-  const stepsContainer = document.getElementById('sim-steps');
-  const simExpr = document.getElementById('sim-expr');
-  const simDesc = document.getElementById('sim-desc');
-  const simOutput = document.getElementById('sim-output');
-  const prevBtn = document.getElementById('sim-prev');
-  const nextBtn = document.getElementById('sim-next');
-  const infoEl = document.getElementById('sim-info');
-
-  if (!stepsContainer || !simExpr) return;
-
-  // Limpiar y poblar los botones laterales
-  stepsContainer.innerHTML = '';
-  simData.forEach((step, idx) => {
-    const btn = document.createElement('button');
-    btn.className = `sim-step-btn ${idx === 0 ? 'active' : ''}`;
-    // Extraer solo la palabra inicial como nombre corto
-    //const shortName = step.title.split(' ')[1] || step.title;
-    const shortName =  step.title;
-    btn.innerText = `${idx}. ${shortName}`;
-    btn.addEventListener('click', () => {
-      goToSimStep(idx);
+  if (document.getElementById('sim-steps')) {
+    createSimulatorInstance({
+      stepsEl: document.getElementById('sim-steps'),
+      exprEl: document.getElementById('sim-expr'),
+      descEl: document.getElementById('sim-desc'),
+      outputEl: document.getElementById('sim-output'),
+      prevEl: document.getElementById('sim-prev'),
+      nextEl: document.getElementById('sim-next'),
+      infoEl: document.getElementById('sim-info'),
+      data: simDataClase01
     });
-    stepsContainer.appendChild(btn);
-  });
+  }
 
-  // Eventos de Navegación inferior
-  prevBtn.addEventListener('click', () => {
-    if (simCurrentIndex > 0) goToSimStep(simCurrentIndex - 1);
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (simCurrentIndex < simData.length - 1) goToSimStep(simCurrentIndex + 1);
-  });
-
-  // Mostrar el paso inicial
-  goToSimStep(0);
+  if (document.getElementById('sim-steps-c07')) {
+    createSimulatorInstance({
+      stepsEl: document.getElementById('sim-steps-c07'),
+      exprEl: document.getElementById('sim-expr-c07'),
+      descEl: document.getElementById('sim-desc-c07'),
+      outputEl: document.getElementById('sim-output-c07'),
+      prevEl: document.getElementById('sim-prev-c07'),
+      nextEl: document.getElementById('sim-next-c07'),
+      infoEl: document.getElementById('sim-info-c07'),
+      data: simDataClase07_2
+    });
+  }
 }
 
-function goToSimStep(index) {
-  simCurrentIndex = index;
-  const data = simData[index];
+function createSimulatorInstance(config) {
+  const { stepsEl, exprEl, descEl, outputEl, prevEl, nextEl, infoEl, data } = config;
+  if (!stepsEl || !data || data.length === 0) return;
+  if (stepsEl.dataset.initialized === "true") return;
+  stepsEl.dataset.initialized = "true";
 
-  // Actualizar textos
-  document.getElementById('sim-expr').innerHTML = data.expr;
-  //document.getElementById('sim-desc').innerText = data.desc;
-  document.getElementById('sim-desc').innerHTML = data.desc;
-  document.getElementById('sim-output').innerHTML = data.out;
-  document.getElementById('sim-info').innerText = `Paso ${index + 1} de ${simData.length}`;
+  let currentIndex = 0;
 
-  // Actualizar botones activos
-  const buttons = document.querySelectorAll('#sim-steps .sim-step-btn');
-  buttons.forEach((btn, idx) => {
-    if (idx === index) btn.classList.add('active');
-    else btn.classList.remove('active');
+  function goToStep(index) {
+    currentIndex = index;
+    const item = data[index];
+
+    if (exprEl) exprEl.innerHTML = item.expr;
+    if (descEl) descEl.innerHTML = item.desc;
+    if (outputEl) outputEl.innerHTML = item.out;
+    if (infoEl) infoEl.innerText = `Paso ${index + 1} de ${data.length}`;
+
+    const buttons = stepsEl.querySelectorAll('.sim-step-btn');
+    buttons.forEach((btn, idx) => {
+      if (idx === index) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+
+    if (prevEl) prevEl.disabled = index === 0;
+    if (nextEl) nextEl.disabled = index === data.length - 1;
+
+    const parentContainer = stepsEl.closest('.simulator-container');
+    if (parentContainer && window.renderMathInElement) {
+      try {
+        renderMathInElement(parentContainer, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false }
+          ],
+          throwOnError: false
+        });
+      } catch (e) {
+        console.error("Error rendering math in simulator:", e);
+      }
+    }
+  }
+
+  stepsEl.innerHTML = '';
+  data.forEach((step, idx) => {
+    const btn = document.createElement('button');
+    btn.className = `sim-step-btn ${idx === 0 ? 'active' : ''}`;
+    btn.innerText = `${idx + 1}. ${step.title}`;
+    btn.addEventListener('click', () => goToStep(idx));
+    stepsEl.appendChild(btn);
   });
 
-  // Habilitar/deshabilitar botones
-  document.getElementById('sim-prev').disabled = index === 0;
-  document.getElementById('sim-next').disabled = index === simData.length - 1;
+  if (prevEl) {
+    prevEl.onclick = () => {
+      if (currentIndex > 0) goToStep(currentIndex - 1);
+    };
+  }
+
+  if (nextEl) {
+    nextEl.onclick = () => {
+      if (currentIndex < data.length - 1) goToStep(currentIndex + 1);
+    };
+  }
+
+  goToStep(0);
 }
 
 /* --- 7. Control de Videos y Modo Teatro --- */

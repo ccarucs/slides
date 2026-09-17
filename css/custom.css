@@ -487,7 +487,7 @@ body.light-theme .help-key {
 .compare-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  margin-top: 8px;
   font-size: 0.5em;
   text-align: left;
 }
@@ -815,7 +815,7 @@ body.light-theme .sim-output-box {
   /* margin: 1.5rem auto; */
   max-width: 800px;       /* Ajusta un ancho máximo para que no ocupe todo el ancho */
   margin: 0 auto;         /* Centra el contenedor completo dentro del slide */
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);

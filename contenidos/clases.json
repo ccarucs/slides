@@ -22,5 +22,17 @@
   "06": {
     "unidad": "Unidad 2: Análisis Léxico",
     "tema": "Análisis Léxico: Tokens, Patrones y Construcción del Analizador"
+  },
+  "07": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Autómatas con Pila"
+  },
+  "07_2": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Gramáticas Libres del Contexto"
+  },
+  "08": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Máquinas de Turing"
   }
 }
