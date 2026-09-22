@@ -295,7 +295,7 @@ Formalmente, una gramática G se define como una cuádrupla (N, T, S, P). N y T 
     </div>
   </div>
 </div>
- <div class="flipped-callout-bis" style="height: 90%;">
+ <div class="flipped-callout-bis">
       <h4><i class="fas fa-box-open"></i> Lenguaje Generado \(L(G)\)</h4>
       <p style="font-size: 0.9rem;">
         Es el conjunto de todas las cadenas compuestas <strong>exclusivamente por terminales</strong> que pueden derivarse a partir del símbolo inicial \(S\):
@@ -479,7 +479,7 @@ Veamos un ejemplo concreto de diseño: una gramática para números enteros. Las
     <div class="card" style="margin-top: 10px;">
       <h4 class="card-title">Ejemplo: derivación de la cadena "1100"</h4>
       <p style="font-size: 0.95rem; text-align: center; color: var(--accent-success); font-weight: bold;">
-        \(T \Rightarrow 1T \Rightarrow 11T \Rightarrow 100T \Rightarrow 1000\)
+        \(T \Rightarrow 1T \Rightarrow 11T \Rightarrow 110T \Rightarrow 1100\)
       </p>
     </div>
   </div>
