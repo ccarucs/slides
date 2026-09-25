@@ -34,5 +34,17 @@
   "08": {
     "unidad": "Unidad 3: Análisis Sintáctico",
     "tema": "Máquinas de Turing"
+  },
+  "09": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Análisis sintáctico descendente recursivo"
+  },
+  "10": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Análisis sintáctico descendente no recursivo"
+  },
+  "11": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Análisis sintáctico ascendente"
   }
 }

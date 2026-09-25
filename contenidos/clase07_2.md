@@ -76,7 +76,7 @@ Recordemos la Jerarquía de Chomsky. En la Unidad 2 vimos que las gramáticas re
 
 ## Definición Formal de GIC
 
-<p style="font-size:0.9rem; text-align:center; margin-top:0px">Una Gramática Libre del Contexto se define formalmente como una <strong>cuádrupla</strong>:</p>
+<p style="font-size:0.9rem; text-align:center; margin-top:0px">Una Gramática Libre (o Independiente) del Contexto se define formalmente como una <strong>cuádrupla</strong>:</p>
 
 <div style="text-align: center; font-weight: bold; font-size: 1.4rem; color: var(--accent-color); margin: 15px 0;">
   \(G = (N, T, S, P)\)
