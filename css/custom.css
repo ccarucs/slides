@@ -51,7 +51,8 @@ body.light-theme {
 
 .reveal {
   color: var(--text-color) !important;
-  background-color: #0c1017 !important; /* agregado. El color azul oscuro de tu fondo */
+  background-color: var(--bg-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
 }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {

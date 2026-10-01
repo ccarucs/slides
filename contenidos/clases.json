@@ -39,6 +39,10 @@
     "unidad": "Unidad 3: Análisis Sintáctico",
     "tema": "Análisis sintáctico descendente recursivo"
   },
+  "09_2": {
+    "unidad": "Unidad 3: Análisis Sintáctico",
+    "tema": "Transformaciones gramaticales"
+  },
   "10": {
     "unidad": "Unidad 3: Análisis Sintáctico",
     "tema": "Análisis sintáctico descendente no recursivo"
