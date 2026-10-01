@@ -57,7 +57,7 @@ Bienvenidos. En la clase anterior vimos que el descenso recursivo con retroceso 
   proc_A()  # ¡Llamada recursiva infinita!
   parea(alpha)</code></pre>
     <p style="font-size:0.7rem; margin-top:6px; color:var(--accent-danger);">
-      <strong>Resultado:</strong> El procedimiento se invoca a sí mismo infinitamente sin haber consumido ningún token de entrada, provocando un desbordamiento de pila (<em>Stack Overflow</em>).
+      <strong>Resultado:</strong> El procedimiento se invoca a sí mismo infinitamente sin haber consumido ningún token de entrada, provocando un desbordamiento de pila.
     </p>
   </div>
 </div>
