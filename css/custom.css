@@ -361,7 +361,11 @@ body.light-theme .help-key {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-
+.grid-2-rev {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  gap: 20px;
+}
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -812,7 +816,6 @@ body.light-theme .sim-output-box {
   width: 100%;
   justify-content: center;
   align-items: center;    /* Centra verticalmente */
-  min-height: 300px;       /* para notar el centrado vertical */
   /* margin: 1.5rem auto; */
   max-width: 800px;       /* Ajusta un ancho máximo para que no ocupe todo el ancho */
   margin: 0 auto;         /* Centra el contenedor completo dentro del slide */
@@ -997,7 +1000,11 @@ video, iframe {
 
 /*  dos columnas variables  */
 .two-col { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 0px; align-items:center; }
+.two-col > * { min-width: 0; }
 .onetwo-col { display:grid; grid-template-columns: 1.1fr 0.6fr; gap: 30px; align-items:center; }
+.onetwo-col > * { min-width: 0; }
+.two-col-equal { display:grid; grid-template-columns: 1fr 1fr; gap: 0px; align-items:center; }
+.two-col-equal > * { min-width: 0; }
 
 /* ---- Two-col con ancho variable (usa variables CSS) ---- */
 .two-col-flex {
@@ -1006,6 +1013,7 @@ video, iframe {
   gap: var(--col-gap, 30px);
   align-items: var(--col-align, center);
 }
+.two-col-flex > * { min-width: 0; }
 
 /* Variantes rápidas predefinidas, por si no querés escribir inline styles */
 .two-col-flex.ratio-60-40 { --col-izq: 1.5fr; --col-der: 1fr; }

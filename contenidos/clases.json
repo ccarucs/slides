@@ -50,5 +50,21 @@
   "11": {
     "unidad": "Unidad 3: Análisis Sintáctico",
     "tema": "Análisis sintáctico ascendente"
+  },
+  "12": {
+    "unidad": "Unidad 4: Análisis Semántico",
+    "tema": "Generador de analizadores sintácticos"
+  },
+  "13": {
+    "unidad": "Unidad 4: Análisis Semántico",
+    "tema": "Gramáticas dirigidas por la sintaxis"
+  },
+  "14": {
+    "unidad": "Unidad 5: Generación de código",
+    "tema": "Tabla de símbolos"
+  },
+  "15": {
+    "unidad": "Unidad 5: Generación de código",
+    "tema": "Código intermedio"
   }
 }
