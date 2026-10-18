@@ -373,7 +373,7 @@ Observen la estructura de la tabla. Para los estados 0 a 11, las columnas de ter
 
 ### Ejemplo: <code>id * id + id $</code>
 
-  <div class="col">
+  <div class="col" style="margin-top: 0px;">
     <div class="video-player-wrapper" style="margin-top: 5px; width:80%">
       <video src="videos/c11/ejemplo_traza.mp4" poster="img/ejemplo.jpeg" controls></video>
     </div>    
