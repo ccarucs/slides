@@ -561,9 +561,19 @@ body.light-theme .compare-table tr:hover td {
   transition: all 0.2s ease;
   font-size: 0.50em;
   font-weight: 500;
-  display: flex;
-  /*justify-content: space-between;*/
-  align-items: center;
+  display: block;
+}
+
+.quiz-option code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95em;
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+  padding: 1px 5px;
+  display: inline;
+  font-weight: 500;
 }
 
 .quiz-option:hover {
@@ -577,10 +587,22 @@ body.light-theme .compare-table tr:hover td {
   color: #10b981;
 }
 
+.quiz-option.correct code {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
 .quiz-option.incorrect {
   border-color: var(--accent-danger);
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
+}
+
+.quiz-option.incorrect code {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
 .quiz-feedback {
