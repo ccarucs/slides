@@ -1232,6 +1232,7 @@ svg {
 .three-col-flex.ratio-wide-mid { --col-1: 1fr;   --col-2: 2fr;   --col-3: 1fr; } /* Centro más ancho */
 .three-col-flex.ratio-wide-left{ --col-1: 2fr;   --col-2: 1fr;   --col-3: 1fr; } /* Izquierda más ancha */
 .three-col-flex.ratio-wide-right{ --col-1: 1fr;  --col-2: 1fr;   --col-3: 2fr; } /* Derecha más ancha */
+.three-col-flex.ratio-separa{ --col-1: 1.45fr;  --col-2: 0.1fr;   --col-3: 1.45fr; } /* separador */
 
 /* En mobile/pantallas angostas, apilar en una sola columna */
 @media (max-width: 900px) {
